@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Neighbourly</string>
+<!--    main-->
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>
+<!--    login-->
     <string name="welcome">Welcome</string>
     <string name="give_hope_generously">Give Hope Generously…</string>
     <string name="email">Email…</string>
@@ -11,14 +13,17 @@
     <string name="account_alert">Don\'t Have a Account</string>
     <string name="conditions"><![CDATA[By signing up, You are agree to our Terms & Conditions.]]></string>
     <string name="already_account_alert">Already Have an Account</string>
+<!--    reset password-->
     <string name="reset_password">Reset password</string>
     <string name="email_receive_alert">Enter your email here to receive the reset link</string>
     <string name="submit">Submit</string>
+<!--    register-->
     <string name="register">Register</string>
     <string name="home">Home</string>
     <string name="activities">Activities</string>
     <string name="profile">Profile</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<!--    about us-->
     <string name="about_us_text">About Us</string>
     <string name="get_to_know_us">Get to Know us</string>
     <string name="abouth_us_slogan">“If you cannot feed a hundred people, then feed just one.”
@@ -27,29 +32,28 @@
     <string name="helping_slogan">Helping those in need is not just a duty, it\'s a privilege!</string>
     <string name="about_us">Our website is a non-profit organization dedicated\nto providing charitable activities and food\n\ndistribution efforts to those in need. We believe in\nhelping the less fortunate members of our\ncommunity and making a positive impact in the\nworld.\n\nWe are passionate about providing help and\nsupport to those who need it the most, and we\nbelieve that everyone deserves to live a healthy and\nfulfilling life. We strive to maintain the highest\nstandards of privacy and data security to ensure \nthat the assistance we provide is effective and safe.</string>
     <string name="mother_teresa_text">- Mother Teresa</string>
-    <string name="text_with_paragraphs">
-        Can this contain a lot of text? Can it contain \n a newline? Yes, it can.
-        Adding a 2nd line like this should work.
-        It should not cause parsing errors.
-    </string>
     <string name="back_text">back</string>
+<!--    register-->
     <string name="username_text">Username…</string>
     <string name="password_text">Password…</string>
     <string name="mobile_text">Mobile…</string>
     <string name="name">Name…</string>
+<!--    contact us-->
     <string name="contact_us_text">Contact Us</string>
     <string name="subject_text">Subject</string>
     <string name="message_text">Message</string>
     <string name="send_text">Send</string>
+<!--    add article-->
     <string name="write_your_article">Write Your Article</string>
     <string name="expand_your_feelings">Expand your Feelings</string>
     <string name="description_text">Description</string>
     <string name="add_article_text">Add Article</string>
     <string name="post_text">Post</string>
+<!--    home-->
     <string name="donate_now_text">Donate Now</string>
     <string name="user_name_text">HI, Isuru Madusanka</string>
     <string name="welcome_back_text">Welcome Back</string>
-    <string name="make_your_donations_text">Make Your Donations...</string>
+    <string name="make_your_donations_text">Make Your Donations…</string>
     <string name="total_donations_text">Total Donations</string>
     <string name="total_amount_text">Rs.25741.59</string>
     <string name="today_text">Today</string>
@@ -62,6 +66,7 @@
     <string name="see_all_text">See All</string>
     <string name="update_text">Upadate</string>
     <string name="delete">Delete</string>
+<!--    donations-->
     <string name="add_family_text">Add Family</string>
     <string name="add">Add</string>
     <string name="donation_description">How much would you like to donate?\nAs a contributor to My Blog we make sure your\ndonation goes directly to supporting our\ncause.</string>
@@ -101,6 +106,7 @@
     <string name="donateHeader">Building Brighter futures for children in need…</string>
     <string name="girl1">girl1</string>
     <string name="orphanBtnDonate_now">Donate Now</string>
+<!--    article-->
     <string name="addArticle">Add Article</string>
     <string name="MyArticle">My article</string>
     <string name="articleBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam diam massa, cursus in volutpat vitae, vestibulum feugiat nisl. Vivamus porta vel odio ut dapibus. Morbi volutpat magna in tincidunt vehicula. Quisque condimentum, erat a egestas fringilla, ante risus fermentum purus, sit amet mollis purus nibh sit amet lectus. Phasellus venenatis, tellus et sagittis laoreet, odio nisl convallis nulla, nec facilisis diam eros quis libero. Sed massa odio, facilisis sed purus a, feugiat porta orci. Morbi posuere aliquam ante, et varius est gravida quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam tempus vel urna ut viverra. Nam pharetra, ligula euismod scelerisque lobortis, nisi ex tincidunt justo, ut efficitur tortor leo eu eros. Praesent vel placerat nibh.</string>
@@ -126,6 +132,7 @@
     <string name="student">Student</string>
     <string name="donation_list">Donation List</string>
     <string name="donation_list2">Donation List</string>
+<!--    family list-->
     <string name="name2">Name:</string>
     <string name="family_members2">Family Members:</string>
     <string name="address2">Address:</string>

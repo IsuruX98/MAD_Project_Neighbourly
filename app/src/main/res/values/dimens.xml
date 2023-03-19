@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="overViewBtnWidth">346dp</dimen>
+    <dimen name="overViewBtnHeight">182dp</dimen>
+    <dimen name="homeDonateNowBtnWidth">346dp</dimen>
+    <dimen name="homeDonateNowBtnHeight">130dp</dimen>
+    <dimen name="homeMenuNowBtnWidth">110dp</dimen>
+    <dimen name="homeMenuNowBtnHeight">110dp</dimen>
+    <dimen name="inputHeight">50dp</dimen>
+    <dimen name="inputWidth">150dp</dimen>
+    <dimen name="btnHeight">50dp</dimen>
+    <dimen name="btnWidth">150dp</dimen>
+    <dimen name="imgHeight">70dp</dimen>
+    <dimen name="imgWidth">70dp</dimen>
+    <dimen name="backgroundTopMargin">30dp</dimen>
+    <dimen name="backgroundBottomMargin">30dp</dimen>
+    <dimen name="backgroundLeftMargin">30dp</dimen>
+    <dimen name="backgroundRightMargin">30dp</dimen>
+    <dimen name="backgroundTopPadding">30dp</dimen>
+    <dimen name="backgroundBottomPadding">20dp</dimen>
+    <dimen name="backgroundLeftPadding">20dp</dimen>
+    <dimen name="backgroundRightPadding">20dp</dimen>
+    <dimen name="formTopMargin">30dp</dimen>
+    <dimen name="formBottomMargin">30dp</dimen>
+    <dimen name="formLeftMargin">30dp</dimen>
+    <dimen name="formRightMargin">30dp</dimen>
+    <dimen name="formTopPadding">20dp</dimen>
+    <dimen name="formBottomPadding">20dp</dimen>
+    <dimen name="formLeftPadding">20dp</dimen>
+    <dimen name="formRightPadding">20dp</dimen>
 </resources>

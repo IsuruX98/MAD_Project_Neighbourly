@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Neighbourlytest"
+        tools:targetApi="31">
+        <activity
+            android:name=".UserList"
+            android:exported="false" />
+        <activity
+            android:name=".Donate0Activity"
+            android:exported="false" />
+        <activity
+            android:name=".FundOverview"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".DonationCategoryDescriptionLowFacilitySchools"
+            android:exported="false" />
+        <activity
+            android:name=".LoaderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DonationCategoryDescriptionLowIncomeFam"
+            android:exported="false" />
+        <activity
+            android:name=".DonationCategoryDescriptionElders"
+            android:exported="false" />
+        <activity
+            android:name=".EditItemDonations"
+            android:exported="false" />
+        <activity
+            android:name=".EditFamilyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Menu2"
+            android:exported="false" />
+        <activity
+            android:name=".Article"
+            android:exported="false" />
+        <activity
+            android:name=".DonationCategory"
+            android:exported="false" />
+        <activity
+            android:name=".ScrollActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Menu"
+            android:exported="false" />
+        <activity
+            android:name=".MyArticles"
+            android:exported="false" />
+        <activity
+            android:name=".DonationCategoryDescriptionChildHouse"
+            android:exported="false" />
+        <activity
+            android:name=".FamilyList"
+            android:exported="false" />
+        <activity
+            android:name=".ItemDonationList"
+            android:exported="false" />
+        <activity
+            android:name=".Articles"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".ThankYouActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Donate2AddInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DonateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemDonationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddFamilyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+    </application>
+
+</manifest>

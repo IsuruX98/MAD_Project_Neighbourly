@@ -1,0 +1,213 @@
+<resources>
+    <string name="app_name">Neighbourly</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="welcome">Welcome</string>
+    <string name="give_hope_generously">Give Hope Generously…</string>
+    <string name="email">Email…</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="let_s_go">Let\'s Go…</string>
+    <string name="logo">logo</string>
+    <string name="account_alert">Don\'t Have a Account</string>
+    <string name="conditions"><![CDATA[By signing up, You are agree to our Terms & Conditions.]]></string>
+    <string name="already_account_alert">Already Have an Account</string>
+    <string name="reset_password">Reset password</string>
+    <string name="email_receive_alert">Enter your email here to receive the reset link</string>
+    <string name="submit">Submit</string>
+    <string name="register">Register</string>
+    <string name="home">Home</string>
+    <string name="activities">Activities</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_us_text">About Us</string>
+    <string name="get_to_know_us">Get to Know us</string>
+    <string name="abouth_us_slogan">“If you cannot feed a hundred people, then feed just one.”
+    </string>
+    <string name="who_we_are">WHO WE ARE</string>
+    <string name="helping_slogan">Helping those in need is not just a duty, it\'s a privilege!</string>
+    <string name="about_us">Our website is a non-profit organization dedicated\nto providing charitable activities and food\n\ndistribution efforts to those in need. We believe in\nhelping the less fortunate members of our\ncommunity and making a positive impact in the\nworld.\n\nWe are passionate about providing help and\nsupport to those who need it the most, and we\nbelieve that everyone deserves to live a healthy and\nfulfilling life. We strive to maintain the highest\nstandards of privacy and data security to ensure \nthat the assistance we provide is effective and safe.</string>
+    <string name="mother_teresa_text">- Mother Teresa</string>
+    <string name="text_with_paragraphs">
+        Can this contain a lot of text? Can it contain \n a newline? Yes, it can.
+        Adding a 2nd line like this should work.
+        It should not cause parsing errors.
+    </string>
+    <string name="back_text">back</string>
+    <string name="username_text">Username…</string>
+    <string name="password_text">Password…</string>
+    <string name="mobile_text">Mobile…</string>
+    <string name="name">Name…</string>
+    <string name="contact_us_text">Contact Us</string>
+    <string name="subject_text">Subject</string>
+    <string name="message_text">Message</string>
+    <string name="send_text">Send</string>
+    <string name="write_your_article">Write Your Article</string>
+    <string name="expand_your_feelings">Expand your Feelings</string>
+    <string name="description_text">Description</string>
+    <string name="add_article_text">Add Article</string>
+    <string name="post_text">Post</string>
+    <string name="donate_now_text">Donate Now</string>
+    <string name="user_name_text">HI, Isuru Madusanka</string>
+    <string name="welcome_back_text">Welcome Back</string>
+    <string name="make_your_donations_text">Make Your Donations...</string>
+    <string name="total_donations_text">Total Donations</string>
+    <string name="total_amount_text">Rs.25741.59</string>
+    <string name="today_text">Today</string>
+    <string name="rs_100_00_text">Rs.100.00</string>
+    <string name="your_donations_text">Your Donations</string>
+    <string name="rs_750_00_text">Rs.750.00</string>
+    <string name="blogs_text">Blogs</string>
+    <string name="donations_text">Donations</string>
+    <string name="menu_text">Menu</string>
+    <string name="see_all_text">See All</string>
+    <string name="update_text">Upadate</string>
+    <string name="delete">Delete</string>
+    <string name="add_family_text">Add Family</string>
+    <string name="add">Add</string>
+    <string name="donation_description">How much would you like to donate?\nAs a contributor to My Blog we make sure your\ndonation goes directly to supporting our\ncause.</string>
+    <string name="type_of_food_donation_text">Type of food donation</string>
+    <string name="quantity_of_food_donations_text">Quantity of Food Donations</string>
+    <string name="expiration_date_if_applicable_text">Expiration Date (if applicable)</string>
+    <string name="contact_person_name_text">Contact Person Name</string>
+    <string name="contact_person_phone_no_text">Contact Person Phone No</string>
+    <string name="type_of_donation_text">Type of Donation</string>
+    <string name="quantity_of_donations_text">Quantity of Donations</string>
+    <string name="donation_bulk_text">Donation Bulk</string>
+    <string name="donate_description">How much would you like to donate? As a\ncontributor to My Blog we make sure your\ndonation goes directly to supporting our\ncause.</string>
+    <string name="rs">Rs.</string>
+    <string name="DonateContinue"><![CDATA[Continue >>]]></string>
+    <string name="rs_10">Rs.10</string>
+    <string name="rs_25">Rs.25</string>
+    <string name="rs_50">Rs.50</string>
+    <string name="rs_100">Rs.100</string>
+    <string name="rs_250">Rs.250</string>
+    <string name="custom">Custom</string>
+    <string name="donate">donate</string>
+    <string name="Donate">Donate</string>
+    <string name="add_your_information">Add Your Information</string>
+    <string name="donate_add_info_des">Test mode is enabled. While in test mode\nno live donations are processed.</string>
+    <string name="who_s_giving_today">Who\'s giving today?</string>
+    <string name="comment">Comment</string>
+    <string name="payment_amount">Payment Amount</string>
+    <string name="giving_frequency">Giving Frequency</string>
+    <string name="donation_total">Donation Total</string>
+    <string name="notice">NOTICE</string>
+    <string name="one_time">One Time</string>
+    <string name="Dinfo_des">We’ll never share this information with anyone.</string>
+    <string name="back_to_home"><![CDATA[Back To Home >>]]></string>
+    <string name="thank_you">Thank you</string>
+    <string name="orphanDescription">Description</string>
+    <string name="orphanBodyTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus sed odio ac dignissim. Nulla placerat aliquet rhoncus. Suspendisse potenti. Integer eleifend ipsum non viverra blandit. Praesent feugiat sollicitudin eros malesuada dapibus. In pellentesque mauris ac sapien faucibus, nec finibus purus imperdiet. Aenean pellentesque non mauris nec pharetra. Mauris condimentum commodo massa. Integer sit amet laoreet justo, at molestie est. Suspendisse semper fermentum vestibulum.</string>
+    <string name="donateHeader">Building Brighter futures for children in need…</string>
+    <string name="girl1">girl1</string>
+    <string name="orphanBtnDonate_now">Donate Now</string>
+    <string name="addArticle">Add Article</string>
+    <string name="MyArticle">My article</string>
+    <string name="articleBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam diam massa, cursus in volutpat vitae, vestibulum feugiat nisl. Vivamus porta vel odio ut dapibus. Morbi volutpat magna in tincidunt vehicula. Quisque condimentum, erat a egestas fringilla, ante risus fermentum purus, sit amet mollis purus nibh sit amet lectus. Phasellus venenatis, tellus et sagittis laoreet, odio nisl convallis nulla, nec facilisis diam eros quis libero. Sed massa odio, facilisis sed purus a, feugiat porta orci. Morbi posuere aliquam ante, et varius est gravida quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam tempus vel urna ut viverra. Nam pharetra, ligula euismod scelerisque lobortis, nisi ex tincidunt justo, ut efficitur tortor leo eu eros. Praesent vel placerat nibh.</string>
+    <string name="articleName">My articles</string>
+    <string name="btnLogout">Logout</string>
+    <string name="btnpdSave">Save</string>
+    <string name="pdHintNic">NIC Number</string>
+    <string name="pdHintContactNo">Contact Number</string>
+    <string name="myArticles_header">My articles</string>
+    <string name="myArticlesBodyTxt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut nisi sit amet magna suscipit ullamcorper ac nec mauris. Aliquam scelerisque et tellus non iaculis.</string>
+    <string name="myArticlesReadMore">Read more…</string>
+    <string name="shanthi_children_s_home">Shanthi Children\'s Home</string>
+    <string name="donation_categories">Donation Categories</string>
+    <string name="type_of_donation2">Type of Donation :</string>
+    <string name="quantity2">Quantity :</string>
+    <string name="expire_date2">Expire Date:</string>
+    <string name="contat_person_name2">Contat Person Name:</string>
+    <string name="contat_number2">Contat Number:</string>
+    <string name="isuru_madusanka">Isuru Madusanka</string>
+    <string name="_05">05</string>
+    <string name="pinnaduwa_galle">Pinnaduwa, Galle</string>
+    <string name="_0782345678">0782345678</string>
+    <string name="student">Student</string>
+    <string name="donation_list">Donation List</string>
+    <string name="donation_list2">Donation List</string>
+    <string name="name2">Name:</string>
+    <string name="family_members2">Family Members:</string>
+    <string name="address2">Address:</string>
+    <string name="contact_no2">Contact No:</string>
+    <string name="occupation">Occupation:</string>
+    <string name="family_list">Family List</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut nisi sit amet magna suscipit ullamcorper ac nec mauris. Aliquam scelerisque et tellus non iaculis.</string>
+    <string name="my_articles">My articles</string>
+    <string name="article_des">Our website is a non-profit organization dedicated to providing charitable activities and food distribution efforts to those.....</string>
+    <string name="articles">Articles</string>
+    <string name="job">Job:</string>
+    <string name="driver">Driver</string>
+    <string name="type_of_donation3">Type of Donation :</string>
+    <string name="_25">25</string>
+    <string name="no">No</string>
+    <string name="contact_person_s_name">Contact Person\'s Name :</string>
+    <string name="article">Article</string>
+    <string name="article_name">Article Name</string>
+    <string name="my_article">My Article</string>
+    <string name="item_donation_list">Item Donation List</string>
+    <string name="donatetxt">donate</string>
+    <string name="donatetxt1">Donate</string>
+    <string name="itemdonationcat">itemDonationCat</string>
+    <string name="orangeback">orangeback</string>
+    <string name="articlesall">articles</string>
+    <string name="articlesall1">Articles</string>
+    <string name="orangeback2">orangeBack</string>
+    <string name="donationcategory1">donationcategory</string>
+    <string name="donation_categories1">Donation Categories</string>
+    <string name="orangeback3">orangeBack</string>
+    <string name="item_donation_list1">Item Donation List</string>
+    <string name="orangeback4">orangeBack</string>
+    <string name="itemdonationlist">itemDonationList</string>
+    <string name="update">Update</string>
+    <string name="edit_family">Edit Family</string>
+    <string name="item_donations">Item Donations</string>
+    <string name="edit_item_donations">Edit Item Donations</string>
+    <string-array name="regType">
+        <item>Donor</item>
+        <item>Volunteer</item>
+    </string-array>
+    <string name="elderstxt">We are pleased to announce the launch of our fund raising program for elders! This program is designed to support seniors who may be struggling with loneliness, isolation, and financial hardship.
+Through this program, we aim to improve the quality of life for seniors by providing them with access to essential resources, such as health care, social activities, and basic needs like food and housing.
+We believe that every senior deserves dignity, respect, and the opportunity to age gracefully with the support of their community. Your contributions will help us to make this a reality by providing crucial support and assistance to elders in need.
+Join us in our mission to create a better future for our elders. Together, we can make a positive impact on their lives and help them to live with dignity and independence. Your donations are essential to our cause, and we thank you in advance for your generosity.</string>
+    <string name="childtxt">We are excited to launch our fund raising program for children! This program is dedicated to raising funds to support children in need, providing them with access to education, healthcare, and basic necessities for a healthy and happy life.
+Through this program, we aim to create a better future for children by investing in their well-being. We believe that every child deserves a chance to thrive, and with your support, we can make this a reality.
+Join us in our mission to make a positive impact on the lives of children. Your donations will go a long way in supporting our cause and helping us create a better world for our children. Together, we can make a difference!</string>
+    <string name="school_fund_slogan">Building Brighter futures for students in need…</string>
+    <string name="family_fund_slogan">Building Brighter futures for families in need…</string>
+    <string name="dispatched">Dispatched</string>
+    <string name="edit">Edit</string>
+    <string name="view">View</string>
+    <string name="scltext">We are excited to launch our fund raising program for rural schools! This program is dedicated to supporting education in rural communities by providing schools with the resources they need to create a nurturing and engaging learning environment.
+Through this program, we aim to bridge the gap between rural and urban education by providing schools with access to books, technology, and other essential resources that will help them to provide a high-quality education to their students.
+We believe that every child, regardless of where they live, deserves access to a quality education. With your support, we can make this a reality for children in rural areas.
+Join us in our mission to improve education in rural communities. Your donations will go a long way in supporting our cause and helping us to create a brighter future for children in rural areas. Together, we can make a positive impact on the lives of these children and help them to reach their full potential.</string>
+    <string name="famtext">We are pleased to announce our fund raising program for low-income families. This program is dedicated to supporting families who are struggling to make ends meet and providing them with the resources they need to thrive.
+Through this program, we aim to alleviate poverty by providing families with access to basic needs such as food, shelter, and healthcare. We also strive to help families break the cycle of poverty by providing them with education and job training opportunities that can lead to long-term financial stability.
+We believe that every family deserves a chance to succeed, and with your support, we can make this a reality. Your donations will go towards providing essential resources and opportunities to low-income families, helping them to build a brighter future for themselves and their children.
+Join us in our mission to support low-income families. Your contributions can make a significant impact on the lives of these families, and we thank you in advance for your generosity. Together, we can create a world where everyone has access to the resources and opportunities they need to thrive.</string>
+    <string name="child_fund">Child Fund</string>
+    <string name="donation_item_list">Donation Item List</string>
+    <string name="edit_article">Edit Article</string>
+    <string name="choose_file">Choose File</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="donation_ncategories">Donation\nCategories</string>
+    <string name="elder_s_fund">Elder\'s Fund</string>
+    <string name="elder_fund_slogan">Building Brighter futures for Elders in need…</string>
+    <string name="family_fund">Family Fund</string>
+    <string name="school_fund">School Fund</string>
+    <string name="fund_overview">Fund Overview</string>
+    <string name="fund_number">Rs.2750.00</string>
+    <string name="today_donations">Today Donations</string>
+    <string name="main_menu">Main menu</string>
+    <string name="explore_us">Explore us</string>
+    <string name="mail_text">isurusanka98@gmail.com</string>
+    <string name="volunteer">Volunteer</string>
+    <string name="id">ID :</string>
+    <string name="id_number">ID number :</string>
+    <string name="type">Type :</string>
+    <string name="email3">Email :</string>
+    <string name="mobile3">Mobile :</string>
+    <string name="user_list">User List</string>
+</resources>

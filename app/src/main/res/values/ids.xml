@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pdAddress" type="id" />
+    <item name="pdEmail" type="id" />
+    <item name="pdContactNo" type="id" />
+    <item name="pdNic" type="id" />
+    <item name="btnLogout" type="id" />
+    <item name="imageView4" type="id" />
+    <item name="editTextTextPersonName2" type="id" />
+</resources>

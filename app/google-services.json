@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "517772880633",
+    "project_id": "neighbourly-3bc04",
+    "storage_bucket": "neighbourly-3bc04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517772880633:android:f0062a92aaa06f39b55028",
+        "android_client_info": {
+          "package_name": "com.mad.neighbourlytest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517772880633-286nja3vjq9gstqlmpdaak09h4p3hf22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCs1pH3jHOxn9oqrwuouodsDHebj9TKN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517772880633-286nja3vjq9gstqlmpdaak09h4p3hf22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,67 +13,67 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
-            android:name=".UserList"
+            android:name=".activites.UserList"
             android:exported="false" />
         <activity
-            android:name=".Donate0Activity"
+            android:name=".activites.Donate0Activity"
             android:exported="false" />
         <activity
-            android:name=".FundOverview"
+            android:name=".activites.FundOverview"
             android:exported="false" />
         <activity
-            android:name=".EditProfile"
+            android:name=".activites.EditProfile"
             android:exported="false" />
         <activity
-            android:name=".DonationCategoryDescriptionLowFacilitySchools"
+            android:name=".activites.DonationCategoryDescriptionLowFacilitySchools"
             android:exported="false" />
         <activity
-            android:name=".LoaderActivity"
+            android:name=".activites.LoaderActivity"
             android:exported="false" />
         <activity
-            android:name=".DonationCategoryDescriptionLowIncomeFam"
+            android:name=".activites.DonationCategoryDescriptionLowIncomeFam"
             android:exported="false" />
         <activity
-            android:name=".DonationCategoryDescriptionElders"
+            android:name=".activites.DonationCategoryDescriptionElders"
             android:exported="false" />
         <activity
             android:name=".EditItemDonations"
             android:exported="false" />
         <activity
-            android:name=".EditFamilyActivity"
+            android:name=".activites.EditFamilyActivity"
             android:exported="false" />
         <activity
-            android:name=".Profile"
+            android:name=".activites.Profile"
             android:exported="false" />
         <activity
-            android:name=".Menu2"
+            android:name=".activites.Menu2"
             android:exported="false" />
         <activity
-            android:name=".Article"
+            android:name=".activites.Article"
             android:exported="false" />
         <activity
-            android:name=".DonationCategory"
+            android:name=".activites.DonationCategory"
             android:exported="false" />
         <activity
-            android:name=".ScrollActivity"
+            android:name=".activites.ScrollActivity"
             android:exported="false" />
         <activity
-            android:name=".Menu"
+            android:name=".activites.Menu"
             android:exported="false" />
         <activity
-            android:name=".MyArticles"
+            android:name=".activites.MyArticles"
             android:exported="false" />
         <activity
-            android:name=".DonationCategoryDescriptionChildHouse"
+            android:name=".activites.DonationCategoryDescriptionChildHouse"
             android:exported="false" />
         <activity
-            android:name=".FamilyList"
+            android:name=".activites.FamilyList"
             android:exported="false" />
         <activity
-            android:name=".ItemDonationList"
+            android:name=".activites.ItemDonationList"
             android:exported="false" />
         <activity
-            android:name=".Articles"
+            android:name=".activites.Articles"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -86,74 +86,72 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+
 
         <activity
-            android:name=".ThankYouActivity"
+            android:name=".activites.ThankYouActivity"
             android:exported="false" />
         <activity
-            android:name=".Donate2AddInfoActivity"
+            android:name=".activites.Donate2AddInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".DonateActivity"
+            android:name=".activites.DonateActivity"
             android:exported="false" />
         <activity
-            android:name=".ItemDonationActivity"
+            android:name=".activites.ItemDonationActivity"
             android:exported="false" />
         <activity
-            android:name=".AddFamilyActivity"
+            android:name=".activites.AddFamilyActivity"
             android:exported="false" />
         <activity
-            android:name=".EditArticleActivity"
+            android:name=".activites.EditArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activites.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AddArticleActivity"
+            android:name=".activites.AddArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".ContactUsActivity"
+            android:name=".activites.ContactUsActivity"
             android:exported="false" />
         <activity
-            android:name=".TActivity"
+            android:name=".activites.TActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AboutUsActivity"
+            android:name=".activites.AboutUsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".activites.ResetPasswordActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".activites.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activites.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

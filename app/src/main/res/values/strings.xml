@@ -217,4 +217,10 @@ Join us in our mission to support low-income families. Your contributions can ma
     <string name="email3">Email :</string>
     <string name="mobile3">Mobile :</string>
     <string name="user_list">User List</string>
+    <string name="user_name">User Name</string>
+    <string name="typepd">Type</string>
+    <string name="emailpd">Email</string>
+    <string name="contact_no">Contact No</string>
+    <string name="save">Save</string>
+    <string name="delete_account">Delete Account</string>
 </resources>

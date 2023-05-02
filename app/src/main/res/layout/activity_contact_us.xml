@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.ContactUsActivity">
+    tools:context=".activites.dinidu.ContactUsActivity">
 
     <Button
         android:id="@+id/contactUsBtn"

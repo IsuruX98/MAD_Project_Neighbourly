@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.databinding.ActivityEditProfileBinding
-
+import cn.pedant.SweetAlert.SweetAlertDialog;
 class EditProfile : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditProfileBinding
@@ -55,7 +55,7 @@ class EditProfile : AppCompatActivity() {
         }
 
     }
-    private fun updatedata(name:String,email:String,mobile:String,type:String,nic:String){
+    private fun updatedata(name:String, email:String, mobile:String, type:String, nic:String){
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("USERS").document(email)
 
@@ -66,29 +66,56 @@ class EditProfile : AppCompatActivity() {
             "id" to nic,
             "type" to type,
         )
-        docRef.update(newData as Map<String, Any>).addOnSuccessListener {
-            Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,HomeActivity::class.java)
-            startActivity(intent)
-        }.addOnFailureListener{
-            Toast.makeText(this, "Unable to Update", Toast.LENGTH_SHORT).show()
-        }
+
+        // Show confirmation dialog before updating data
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Confirm Update")
+            .setContentText("Are you sure you want to update this data?")
+            .setConfirmText("Update")
+            .setConfirmClickListener { sDialog ->
+                sDialog.dismissWithAnimation()
+
+                // Update data in Firestore
+                docRef.update(newData as Map<String, Any>).addOnSuccessListener {
+                    Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+                }.addOnFailureListener{
+                    Toast.makeText(this, "Unable to Update", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setCancelText("Cancel")
+            .setCancelClickListener { sDialog ->
+                sDialog.dismissWithAnimation()
+            }
+            .show()
     }
     private fun deletedata(email:String){
         val db = FirebaseFirestore.getInstance()
         val collectionRef = db.collection("USERS")
         val documentRef = collectionRef.document(email)
 
-        documentRef.delete().addOnSuccessListener {
-            Toast.makeText(this, "Deleted successfully", Toast.LENGTH_SHORT).show()
-            // Log out user
-            FirebaseAuth.getInstance().signOut()
-            // Redirect to MainActivity
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }.addOnFailureListener{
-            Toast.makeText(this, "Unable to Delete", Toast.LENGTH_SHORT).show()
-        }
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Delete")
+            .setContentText("Are you sure you want to delete your account?")
+            .setConfirmText("Yes, delete it")
+            .setConfirmClickListener { sDialog ->
+                sDialog.dismissWithAnimation()
+                documentRef.delete().addOnSuccessListener {
+                    Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
+                    // Log out user
+                    FirebaseAuth.getInstance().signOut()
+                    // Redirect to MainActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }.addOnFailureListener{
+                    Toast.makeText(this, "Unable to Delete", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setCancelText("No")
+            .setCancelClickListener { sDialog -> sDialog.dismissWithAnimation() }
+            .show()
     }
+
 }

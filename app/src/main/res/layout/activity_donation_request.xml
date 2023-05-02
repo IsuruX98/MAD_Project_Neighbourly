@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.ItemDonationActivity">
+    tools:context=".activites.ishara.ItemDonationActivity">
 
     <ImageView
         android:id="@+id/menuHome"
@@ -108,7 +108,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/contact_person_name_text"
-        android:inputType="number"
+        android:inputType="text"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -124,7 +124,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/contact_person_phone_no_text"
-        android:inputType="text"
+        android:inputType="number"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"

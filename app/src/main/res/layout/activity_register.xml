@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.RegisterActivity">
+    tools:context=".activites.isuru.RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -80,14 +80,14 @@
 
 
             <EditText
-                android:id="@+id/regPassword3"
+                android:id="@+id/regId"
                 style="@style/input"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:hint="ID number..."
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingStart="15dp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

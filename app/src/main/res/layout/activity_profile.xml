@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.Profile">
+    tools:context=".activites.isuru.Profile">
 
     <ImageView
         android:id="@+id/editBtn"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/edit_article"
+        android:text="@string/profile"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,9 +42,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/pdName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Isuru Madusanka"
         android:textColor="@color/black_low"
         android:textSize="28dp"
@@ -61,24 +62,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:hint="Email Address"
+        android:enabled="false"
         android:inputType="textEmailAddress"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-
-        android:id="@+id/pdAddress"
-        style="@style/input"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:hint="Address"
-        android:paddingStart="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/pdEmail"
-        app:layout_constraintStart_toStartOf="@+id/pdEmail"
-        app:layout_constraintTop_toBottomOf="@+id/pdEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/pdType" />
 
     <EditText
 
@@ -86,12 +75,13 @@
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:hint="@string/pdHintContactNo"
+        android:enabled="false"
         android:paddingStart="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/pdAddress"
-        app:layout_constraintStart_toStartOf="@+id/pdAddress"
-        app:layout_constraintTop_toBottomOf="@+id/pdAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/pdEmail"
+        app:layout_constraintStart_toStartOf="@+id/pdEmail"
+        app:layout_constraintTop_toBottomOf="@+id/pdEmail" />
 
     <EditText
 
@@ -99,8 +89,9 @@
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:hint="@string/pdHintNic"
+        android:enabled="false"
         android:paddingStart="15dp"
 
         app:layout_constraintEnd_toEndOf="@+id/pdContactNo"
@@ -124,7 +115,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/pdType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -132,14 +123,14 @@
         android:textColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/pdName" />
 
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37"

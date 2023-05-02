@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/background"
-    tools:context=".activites.MainActivity">
+    tools:context=".activites.isuru.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"

@@ -13,46 +13,46 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
-            android:name=".activites.UserList"
+            android:name=".activites.isuru.UserList"
             android:exported="false" />
         <activity
-            android:name=".activites.Donate0Activity"
+            android:name=".activites.ishara.Donate0Activity"
             android:exported="false" />
         <activity
-            android:name=".activites.FundOverview"
+            android:name=".activites.isuru.FundOverview"
             android:exported="false" />
         <activity
-            android:name=".activites.EditProfile"
+            android:name=".activites.isuru.EditProfile"
             android:exported="false" />
         <activity
-            android:name=".activites.DonationCategoryDescriptionLowFacilitySchools"
+            android:name=".activites.ishara.DonationCategoryDescriptionLowFacilitySchools"
             android:exported="false" />
         <activity
             android:name=".activites.LoaderActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.DonationCategoryDescriptionLowIncomeFam"
+            android:name=".activites.ishara.DonationCategoryDescriptionLowIncomeFam"
             android:exported="false" />
         <activity
-            android:name=".activites.DonationCategoryDescriptionElders"
+            android:name=".activites.ishara.DonationCategoryDescriptionElders"
             android:exported="false" />
         <activity
             android:name=".EditItemDonations"
             android:exported="false" />
         <activity
-            android:name=".activites.EditFamilyActivity"
+            android:name=".activites.dinidu.EditFamilyActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Profile"
+            android:name=".activites.isuru.Profile"
             android:exported="false" />
         <activity
-            android:name=".activites.Menu2"
+            android:name=".activites.isuru.Menu2"
             android:exported="false" />
         <activity
-            android:name=".activites.Article"
+            android:name=".activites.yasiru.Article"
             android:exported="false" />
         <activity
-            android:name=".activites.DonationCategory"
+            android:name=".activites.ishara.DonationCategory"
             android:exported="false" />
         <activity
             android:name=".activites.ScrollActivity"
@@ -61,19 +61,19 @@
             android:name=".activites.Menu"
             android:exported="false" />
         <activity
-            android:name=".activites.MyArticles"
+            android:name=".activites.yasiru.MyArticles"
             android:exported="false" />
         <activity
-            android:name=".activites.DonationCategoryDescriptionChildHouse"
+            android:name=".activites.ishara.DonationCategoryDescriptionChildHouse"
             android:exported="false" />
         <activity
-            android:name=".activites.FamilyList"
+            android:name=".activites.dinidu.FamilyList"
             android:exported="false" />
         <activity
-            android:name=".activites.ItemDonationList"
+            android:name=".activites.ishara.ItemDonationList"
             android:exported="false" />
         <activity
-            android:name=".activites.Articles"
+            android:name=".activites.yasiru.Articles"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -89,31 +89,31 @@
 
 
         <activity
-            android:name=".activites.ThankYouActivity"
+            android:name=".activites.ishara.ThankYouActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Donate2AddInfoActivity"
+            android:name=".activites.isuru.Donate2AddInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.DonateActivity"
+            android:name=".activites.isuru.DonateActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.ItemDonationActivity"
+            android:name=".activites.ishara.ItemDonationActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.AddFamilyActivity"
+            android:name=".activites.dinidu.AddFamilyActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.EditArticleActivity"
+            android:name=".activites.yasiru.EditArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.HomeActivity"
+            android:name=".activites.isuru.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.AddArticleActivity"
+            android:name=".activites.yasiru.AddArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.ContactUsActivity"
+            android:name=".activites.dinidu.ContactUsActivity"
             android:exported="false" />
         <activity
             android:name=".activites.TActivity"
@@ -123,35 +123,35 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activites.AboutUsActivity"
+            android:name=".activites.dinidu.AboutUsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activites.ResetPasswordActivity"
+            android:name=".activites.isuru.ResetPasswordActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activites.RegisterActivity"
+            android:name=".activites.isuru.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activites.LoginActivity"
+            android:name=".activites.isuru.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activites.MainActivity"
+            android:name=".activites.isuru.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

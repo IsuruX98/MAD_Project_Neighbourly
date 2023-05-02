@@ -37,9 +37,6 @@
             android:name=".activites.ishara.DonationCategoryDescriptionElders"
             android:exported="false" />
         <activity
-            android:name=".EditItemDonations"
-            android:exported="false" />
-        <activity
             android:name=".activites.dinidu.EditFamilyActivity"
             android:exported="false" />
         <activity
@@ -108,7 +105,13 @@
             android:exported="false" />
         <activity
             android:name=".activites.isuru.HomeActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activites.yasiru.AddArticleActivity"
             android:exported="false" />
@@ -153,11 +156,7 @@
         <activity
             android:name=".activites.isuru.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import com.mad.neighbourlytest.models.ishara.ItemDonationModel
+import com.mad.neighbourlytest.models.ItemDonationModel
 
 class ItemDonationActivity : AppCompatActivity() {
 

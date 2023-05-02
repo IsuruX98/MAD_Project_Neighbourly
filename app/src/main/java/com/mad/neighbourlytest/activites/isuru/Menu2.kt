@@ -9,7 +9,7 @@ import com.mad.neighbourlytest.activites.yasiru.Articles
 import com.mad.neighbourlytest.activites.ishara.DonationCategory
 import com.mad.neighbourlytest.activites.dinidu.FamilyList
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
-import com.mad.neighbourlytest.activites.ishara.ItemDonationList
+import com.mad.neighbourlytest.activites.ishara.ItemDonationListFetch
 import com.mad.neighbourlytest.activites.yasiru.MyArticles
 import com.mad.neighbourlytest.databinding.ActivityMenu2Binding
 
@@ -44,7 +44,7 @@ class Menu2 : AppCompatActivity() {
             startActivity(Intent(this, DonationCategory::class.java))
         }
         binding.itemDonationListBtn.setOnClickListener {
-            startActivity(Intent(this, ItemDonationList::class.java))
+            startActivity(Intent(this, ItemDonationListFetch::class.java))
         }
         binding.itemDonations.setOnClickListener {
             startActivity(Intent(this, ItemDonationActivity::class.java))

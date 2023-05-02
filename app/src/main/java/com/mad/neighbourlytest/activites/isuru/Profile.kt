@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.databinding.ActivityProfileBinding
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 class Profile : AppCompatActivity() {
 
@@ -40,13 +41,22 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this, EditProfile::class.java))
         }
         binding.btnLogout.setOnClickListener {
-            auth.signOut()
-            val editor = sharedPreferences.edit()
-            editor.clear()
-            editor.apply()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            val sweetAlertDialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure you want to log out?")
+                .setConfirmButton("Yes") { sDialog ->
+                    sDialog.dismissWithAnimation()
+                    auth.signOut()
+                    val editor = sharedPreferences.edit()
+                    editor.clear()
+                    editor.apply()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .setCancelButton("No") { sDialog ->
+                    sDialog.dismissWithAnimation()
+                }
+            sweetAlertDialog.show()
         }
     }
 }

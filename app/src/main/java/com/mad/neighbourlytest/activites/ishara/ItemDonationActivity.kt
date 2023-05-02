@@ -1,10 +1,11 @@
 package com.mad.neighbourlytest.activites.ishara
 
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
@@ -35,7 +36,7 @@ class ItemDonationActivity : AppCompatActivity() {
         contactNumberDonation = findViewById(R.id.DBulkContactPersonMobile)
         addBtn = findViewById(R.id.addDBulkBtn)
 
-        dataBase = FirebaseDatabase.getInstance().getReference()
+        dataBase = FirebaseDatabase.getInstance().getReference("Donation Items")
 
         //onclick listner for add button
         addBtn.setOnClickListener {
@@ -81,6 +82,14 @@ class ItemDonationActivity : AppCompatActivity() {
                 .show()
             return
         }
+        if(cNum.length != 10){
+            SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error")
+                .setContentText("Phone Number Must be 10 digits")
+                .show()
+            return
+
+        }
 
 
         //create donation id using database push method
@@ -92,21 +101,16 @@ class ItemDonationActivity : AppCompatActivity() {
 
            dataBase.child(donationID).setValue(itemDonation)
                .addOnCompleteListener{
-                   SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                       .setTitleText("Success!")
-                       .setContentText("Donation Request Added Successfully")
-                       .setConfirmClickListener { sDialog ->
-                           sDialog.dismissWithAnimation()
-                           finish() // close the activity after successful insertion
-                       }
-                       .show()
-
                    //clear input fields
                    typeDonation.text.clear()
                    quantityDonation.text.clear()
                    expireDonation.text.clear()
                    contactNameDonation.text.clear()
                    contactNumberDonation.text.clear()
+
+                   val intent = Intent(this, ThankYouActivity::class.java)
+                   startActivity(intent)
+
                }.addOnFailureListener{
                        err -> SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                    .setTitleText("Error")

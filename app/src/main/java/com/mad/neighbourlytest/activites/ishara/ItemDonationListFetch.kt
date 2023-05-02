@@ -3,15 +3,15 @@ package com.mad.neighbourlytest.activites.ishara
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.mad.neighbourlytest.databinding.ActivityDonationListBinding
+import com.mad.neighbourlytest.databinding.ActivityItemDonationListOneBinding
 
-class ItemDonationList : AppCompatActivity() {
+class ItemDonationListFetch : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDonationListBinding
+    private lateinit var binding: ActivityItemDonationListOneBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDonationListBinding.inflate(layoutInflater)
+        binding = ActivityItemDonationListOneBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.deleteBtn.setOnClickListener {

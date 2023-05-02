@@ -44,58 +44,61 @@
 
     <EditText
 
-        android:id="@+id/pdEmail"
+        android:id="@+id/editName"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:paddingStart="15dp"
         android:hint="Name"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
 
-        android:id="@+id/pdAddress"
+        android:id="@+id/editEmail"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:hint="Email"
+        android:enabled="false"
+        android:inputType="textEmailAddress"
+        android:hint="@string/emailpd"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
 
     <EditText
 
-        android:id="@+id/pdContactNo"
+        android:id="@+id/editType"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:hint="Address"
+        android:hint="@string/typepd"
+        android:enabled="false"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
 
     <EditText
 
-        android:id="@+id/pdNic"
+        android:id="@+id/editMobile"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:hint="Contact No"
+        android:hint="@string/contact_no"
         android:inputType="phone"
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdContactNo" />
+        app:layout_constraintTop_toBottomOf="@+id/editType" />
 
 
     <android.widget.Button
@@ -104,12 +107,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         style="@style/btnBlack"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editNIC" />
 
 
     <android.widget.Button
@@ -118,7 +121,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:text="Delete Account"
+        android:text="@string/delete_account"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +141,7 @@
         app:srcCompat="@drawable/avatar3" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editNIC"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -149,6 +152,6 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdNic" />
+        app:layout_constraintTop_toBottomOf="@+id/editMobile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

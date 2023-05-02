@@ -70,6 +70,9 @@ class RegisterActivity : AppCompatActivity() {
             } else {
                 register(email, password, name, mobile,id,type)
             }
+            binding.regLogBtn.setOnClickListener{
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
         }
 
     }

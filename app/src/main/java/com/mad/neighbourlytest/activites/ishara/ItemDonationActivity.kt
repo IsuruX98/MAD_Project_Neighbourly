@@ -33,6 +33,7 @@ class ItemDonationActivity : AppCompatActivity() {
         expireDonation = findViewById(R.id.DBulkExDate)
         contactNameDonation = findViewById(R.id.DBulkContactPersonName)
         contactNumberDonation = findViewById(R.id.DBulkContactPersonMobile)
+        addBtn = findViewById(R.id.addDBulkBtn)
 
         dataBase = FirebaseDatabase.getInstance().getReference()
 
@@ -52,46 +53,68 @@ class ItemDonationActivity : AppCompatActivity() {
         val cNum = contactNumberDonation.text.toString()
 
         //check null value validation
-        if(type.isEmpty()){
-            typeDonation.error = "Donation Type Required"
+        if (type.isEmpty()) {
+            SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error")
+                .setContentText("Donation Type is required")
+                .show()
+            return
         }
-        if(qty.isEmpty()){
-            quantityDonation.error = "Quantity of Donation Required"
+        if (qty.isEmpty()) {
+            SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error")
+                .setContentText("Quantity of Donation is required")
+                .show()
+            return
         }
-        if(cName.isEmpty()){
-            contactNameDonation.error = "Name of the Donor Required"
+        if (cName.isEmpty()) {
+            SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error")
+                .setContentText("Name of the Donor is required")
+                .show()
+            return
         }
-        if(cNum.isEmpty()){
-            contactNumberDonation.error = "Phone Number of the Donor Required"
+        if (cNum.isEmpty()) {
+            SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error")
+                .setContentText("Phone Number of the Donor is required")
+                .show()
+            return
         }
+
+
 
         //create donation id using database push method
-        val donationID = dataBase.push().key!!
+           val donationID = dataBase.push().key!!
 
-        //connect model
-        val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
+           //connect model
+           val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
 
 
-        dataBase.child(donationID).setValue(itemDonation)
-            .addOnCompleteListener{
-                SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                    .setTitleText("Success!")
-                    .setContentText("Employee saved successfully")
-                    .setConfirmClickListener { sDialog ->
-                        sDialog.dismissWithAnimation()
-                        finish() // close the activity after successful insertion
-                    }
-                    .show()
+           dataBase.child(donationID).setValue(itemDonation)
+               .addOnCompleteListener{
+                   SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                       .setTitleText("Success!")
+                       .setContentText("Donation Request Added Successfully")
+                       .setConfirmClickListener { sDialog ->
+                           sDialog.dismissWithAnimation()
+                           finish() // close the activity after successful insertion
+                       }
+                       .show()
 
-                //clear input fields
-                typeDonation.text.clear()
-                quantityDonation.text.clear()
-                expireDonation.text.clear()
-                contactNameDonation.text.clear()
-                contactNumberDonation.text.clear()
-            }.addOnFailureListener{
-                    err -> Toast.makeText(this,"Error ${err.message}", Toast.LENGTH_LONG).show()
-            }
+                   //clear input fields
+                   typeDonation.text.clear()
+                   quantityDonation.text.clear()
+                   expireDonation.text.clear()
+                   contactNameDonation.text.clear()
+                   contactNumberDonation.text.clear()
+               }.addOnFailureListener{
+                       err -> SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                   .setTitleText("Error")
+                   .setContentText(err.message)
+                   .show()
+               }
+
 
 
     }

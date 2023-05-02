@@ -2,11 +2,97 @@ package com.mad.neighbourlytest.activites.ishara
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.mad.neighbourlytest.models.ishara.ItemDonationModel
 
 class ItemDonationActivity : AppCompatActivity() {
+
+    //declare variables for donation request
+    private lateinit var typeDonation : EditText
+    private lateinit var quantityDonation : EditText
+    private lateinit var expireDonation :  EditText
+    private lateinit var contactNameDonation : EditText
+    private lateinit var contactNumberDonation : EditText
+    private lateinit var addBtn : Button
+
+    //database references
+    private lateinit var dataBase : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donation_request)
+
+        //initialize variables
+        typeDonation = findViewById(R.id.DBulkType)
+        quantityDonation = findViewById(R.id.DBulkQuantity)
+        expireDonation = findViewById(R.id.DBulkExDate)
+        contactNameDonation = findViewById(R.id.DBulkContactPersonName)
+        contactNumberDonation = findViewById(R.id.DBulkContactPersonMobile)
+
+        dataBase = FirebaseDatabase.getInstance().getReference()
+
+        //onclick listner for add button
+        addBtn.setOnClickListener {
+            saveDonation()
+        }
+
+
+    }
+    //function for add button
+    private fun saveDonation(){
+        val type = typeDonation.text.toString()
+        val qty = quantityDonation.text.toString()
+        val exp = expireDonation.text.toString()
+        val cName = contactNameDonation.text.toString()
+        val cNum = contactNumberDonation.text.toString()
+
+        //check null value validation
+        if(type.isEmpty()){
+            typeDonation.error = "Donation Type Required"
+        }
+        if(qty.isEmpty()){
+            quantityDonation.error = "Quantity of Donation Required"
+        }
+        if(cName.isEmpty()){
+            contactNameDonation.error = "Name of the Donor Required"
+        }
+        if(cNum.isEmpty()){
+            contactNumberDonation.error = "Phone Number of the Donor Required"
+        }
+
+        //create donation id using database push method
+        val donationID = dataBase.push().key!!
+
+        //connect model
+        val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
+
+
+        dataBase.child(donationID).setValue(itemDonation)
+            .addOnCompleteListener{
+                SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Success!")
+                    .setContentText("Employee saved successfully")
+                    .setConfirmClickListener { sDialog ->
+                        sDialog.dismissWithAnimation()
+                        finish() // close the activity after successful insertion
+                    }
+                    .show()
+
+                //clear input fields
+                typeDonation.text.clear()
+                quantityDonation.text.clear()
+                expireDonation.text.clear()
+                contactNameDonation.text.clear()
+                contactNumberDonation.text.clear()
+            }.addOnFailureListener{
+                    err -> Toast.makeText(this,"Error ${err.message}", Toast.LENGTH_LONG).show()
+            }
+
+
     }
 }

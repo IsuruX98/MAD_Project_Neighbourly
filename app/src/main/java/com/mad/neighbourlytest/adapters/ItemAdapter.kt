@@ -1,17 +1,23 @@
 package com.mad.neighbourlytest.adapters
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.models.ItemDonationModel
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.android.play.integrity.internal.z
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
+import com.mad.neighbourlytest.activites.ishara.ThankYouActivity
+import com.mad.neighbourlytest.models.ItemDonationModel
+
 
 
 class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>(){
@@ -28,6 +34,9 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         holder.expDonation.text = currentItem.expDonation
         holder.contactNameDonation.text = currentItem.contactName
         holder.contactNumDonation.text = currentItem.contactNum
+        holder.donationID.text = currentItem.donationID
+
+
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +44,8 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val donationID : TextView = itemView.findViewById(R.id.DonationID)
+        private val textID = donationID.text.toString()
 
         val typeDonation : TextView = itemView.findViewById(R.id.inputTypeDonation)
         val qtyDonation : TextView = itemView.findViewById(R.id.inputQty)
@@ -45,6 +56,7 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         private val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
 
         private fun deleteItem(id: String){
+
             val database : DatabaseReference = FirebaseDatabase.getInstance().getReference("Donation Items").child(id)
             val task = database.removeValue()
             task.addOnSuccessListener {
@@ -53,6 +65,7 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
                     .setContentText("Item deleted Successfully")
                     .setConfirmClickListener {
                             sDialog: SweetAlertDialog -> sDialog.dismissWithAnimation()
+
                     }.show()
             }
             task.addOnFailureListener { error ->
@@ -64,14 +77,18 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
                     }.show()
             }
         }
+
+
         init {
             deleteButton.setOnClickListener {
+
                 SweetAlertDialog(itemView.context, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Delete Item")
                     .setContentText("Are you sure you want to delete this item?")
                     .setConfirmText("Yes")
                     .setConfirmClickListener { sDialog: SweetAlertDialog ->
-                        deleteItem()
+
+                        deleteItem(textID)
                         sDialog.dismissWithAnimation()
                     }
                     .setCancelText("No")

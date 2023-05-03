@@ -13,7 +13,6 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.activites.isuru.Menu
 import com.mad.neighbourlytest.activites.isuru.Menu2
-import com.mad.neighbourlytest.models.ishara.ItemDonationModel
 import com.mad.neighbourlytest.models.ItemDonationModel
 
 class ItemDonationActivity : AppCompatActivity() {

@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.activites.isuru
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,6 +38,8 @@ class DonateActivity : AppCompatActivity() {
             binding.DonateAmount.isEnabled = true
         }
 
+        val type = intent.getStringExtra("type").toString()
+
         binding.DonateContBtn.setOnClickListener{
             val amount = binding.DonateAmount.text.toString()
             if(amount.isEmpty()){
@@ -45,7 +48,21 @@ class DonateActivity : AppCompatActivity() {
             }
             val intent = Intent(this, Donate2AddInfoActivity::class.java)
             intent.putExtra("amount",amount)
+            intent.putExtra("type",type)
             startActivity(intent)
+        }
+        binding.menuHome.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, Menu::class.java))
+            }
+        }
+        binding.menuHome2.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }

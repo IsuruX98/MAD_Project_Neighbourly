@@ -36,91 +36,9 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="20dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/addArticleBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/addArticleLogo"
-                            android:layout_width="39dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/ic_baseline_post_add_24" />
 
 
-                    </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/add_article_text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/myArticleBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/myArticleLogo"
-                            android:layout_width="39dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_baseline_list_alt_24" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/my_articles"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/articlesBtn"
@@ -159,92 +77,6 @@
                         android:layout_marginTop="45dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="@string/articles"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/addFamilyBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/addFamilyLogo"
-                            android:layout_width="39dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/ic_baseline_group_add_24" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/add_family_text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/familyListBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/familyListLogo"
-                            android:layout_width="39dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/ic_baseline_group_24" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/family_list"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -328,9 +160,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="180dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="28dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="@string/donation_ncategories"
+                        android:text="Donation\nCategory"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
@@ -375,94 +207,6 @@
                         android:layout_marginTop="45dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Item Donations"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/itemDonationListBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/itemDonateLogo"
-                            android:layout_width="39sp"
-                            android:layout_height="35sp"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/baseline_menu_book_24" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="150dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/item_donation_list"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/userListBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardBackgroundColor="@color/textInputColor"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="20dp">
-
-                        <ImageView
-                            android:layout_width="110dp"
-                            android:layout_height="110dp"
-                            android:background="@color/orangeMainColor" />
-
-                        <ImageView
-                            android:id="@+id/user"
-                            android:layout_width="39sp"
-                            android:layout_height="35sp"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/ic_baseline_person_outline_24" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="150dp"
-                        android:layout_marginTop="45dp"
-                        android:fontFamily="@font/poppins_bold"
-                        android:text="@string/user_list"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="20sp" />

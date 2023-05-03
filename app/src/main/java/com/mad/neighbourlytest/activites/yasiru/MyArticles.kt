@@ -56,6 +56,17 @@ class MyArticles : AppCompatActivity() {
                     val mAdapter = ArticleAdapter(articles)
                     recyclerView.adapter = mAdapter
 
+                    mAdapter.setOnItemClickListner(object : ArticleAdapter.OnItemClickListner{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@MyArticles, Article::class.java)
+
+                            intent.putExtra("subject", articles[position].subject)
+                            intent.putExtra("description", articles[position].description)
+                            startActivity(intent)
+                        }
+
+                    })
+
                     recyclerView.visibility = View.VISIBLE
 
                 }else{

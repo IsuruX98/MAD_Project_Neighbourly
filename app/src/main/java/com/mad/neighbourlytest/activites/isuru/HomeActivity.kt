@@ -11,7 +11,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mad.neighbourlytest.activites.Menu
 import com.mad.neighbourlytest.activites.dinidu.AboutUsActivity
 import com.mad.neighbourlytest.activites.dinidu.ContactUsActivity
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity

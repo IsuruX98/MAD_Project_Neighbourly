@@ -1,6 +1,7 @@
 package com.mad.neighbourlytest.activites.isuru
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -183,6 +184,20 @@ class FundOverview : AppCompatActivity() {
                 Log.e("Firebase", "Error reading mainFund: ${error.message}")
             }
         })
+
+        binding.menuHome.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, Menu::class.java))
+            }
+        }
+        binding.menuHome2.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
 
     }

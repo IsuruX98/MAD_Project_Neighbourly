@@ -55,7 +55,7 @@
             android:name=".activites.ScrollActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.Menu"
+            android:name=".activites.isuru.Menu"
             android:exported="false" />
         <activity
             android:name=".activites.yasiru.MyArticles"

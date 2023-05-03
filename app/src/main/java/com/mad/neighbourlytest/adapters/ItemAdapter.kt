@@ -46,7 +46,8 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val donationID : TextView = itemView.findViewById(R.id.DonationID)
-        private val textID = donationID.text.toString()
+
+
 
         val typeDonation : TextView = itemView.findViewById(R.id.inputTypeDonation)
         val qtyDonation : TextView = itemView.findViewById(R.id.inputQty)
@@ -58,8 +59,8 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
         private fun deleteItem(id: String){
 
-            val database : DatabaseReference = FirebaseDatabase.getInstance().getReference("Donation Items").child(id)
-            val task = database.removeValue()
+            val database : DatabaseReference = FirebaseDatabase.getInstance().getReference("Donation Items")
+            val task = database.child(id).removeValue()
             task.addOnSuccessListener {
                 SweetAlertDialog(itemView.context, SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Success!!")
@@ -82,13 +83,13 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
         init {
             deleteButton.setOnClickListener {
-
+                val textID = donationID.text.toString()
                 SweetAlertDialog(itemView.context, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Delete Item")
                     .setContentText("Are you sure you want to delete this item?")
                     .setConfirmText("Yes")
                     .setConfirmClickListener { sDialog: SweetAlertDialog ->
-
+                        Log.d("My-log",textID)
                         deleteItem(textID)
                         sDialog.dismissWithAnimation()
                     }

@@ -69,7 +69,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/user_name_text"
+        android:hint="@string/user_name"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

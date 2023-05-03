@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
+            android:name=".activites.ishara.ItemDonationListOne"
+            android:exported="false" />
+        <activity
             android:name=".activites.isuru.UserList"
             android:exported="false" />
         <activity
@@ -39,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".activites.ishara.DonationCategoryDescriptionElders"
-            android:exported="false" />
-        <activity
-            android:name=".EditItemDonations"
             android:exported="false" />
         <activity
             android:name=".activites.dinidu.EditFamilyActivity"
@@ -74,7 +74,7 @@
             android:name=".activites.dinidu.FamilyList"
             android:exported="false" />
         <activity
-            android:name=".activites.ishara.ItemDonationList"
+            android:name=".activites.ishara.ItemDonationListFetch"
             android:exported="false" />
         <activity
             android:name=".activites.yasiru.Articles"
@@ -90,8 +90,6 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-
-
         <activity
             android:name=".activites.ishara.ThankYouActivity"
             android:exported="false" />
@@ -112,7 +110,13 @@
             android:exported="false" />
         <activity
             android:name=".activites.isuru.HomeActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activites.yasiru.AddArticleActivity"
             android:exported="false" />
@@ -157,11 +161,7 @@
         <activity
             android:name=".activites.isuru.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"

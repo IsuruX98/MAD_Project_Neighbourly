@@ -44,14 +44,31 @@
     <Button
         android:id="@+id/addFamBtn"
         style="@style/btnOrangeMain"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_width="149dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
         android:text="@string/update"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/famJob" />
+        app:layout_constraintTop_toBottomOf="@+id/famJob"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <Button
+        android:id="@+id/deleteFamBtn2"
+        style="@style/btnRed"
+        android:layout_width="149dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/delete"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/addFamBtn"
+        app:layout_constraintTop_toBottomOf="@+id/famJob"
+        app:layout_constraintVertical_bias="0.014" />
 
     <EditText
         android:id="@+id/famName"

@@ -10,7 +10,7 @@ import com.mad.neighbourlytest.activites.dinidu.FamilyList
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.activites.ishara.DonationCategory
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
-import com.mad.neighbourlytest.activites.ishara.ItemDonationList
+import com.mad.neighbourlytest.activites.ishara.ItemDonationListFetch
 import com.mad.neighbourlytest.activites.yasiru.AddArticleActivity
 import com.mad.neighbourlytest.activites.yasiru.Articles
 import com.mad.neighbourlytest.activites.yasiru.MyArticles
@@ -38,7 +38,7 @@ class Menu : AppCompatActivity() {
             startActivity(Intent(this, FamilyList::class.java))
         }
         binding.itemDonationListBtn.setOnClickListener {
-            startActivity(Intent(this, ItemDonationList::class.java))
+            startActivity(Intent(this, ItemDonationListFetch::class.java))
         }
         binding.donateBtn2.setOnClickListener {
             startActivity(Intent(this, Donate0Activity::class.java))

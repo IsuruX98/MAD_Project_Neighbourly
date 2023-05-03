@@ -1,4 +1,4 @@
-package com.mad.neighbourlytest.models.isuru
+package com.mad.neighbourlytest.models
 
 data class MainFundModel(
     val name:String?=null,

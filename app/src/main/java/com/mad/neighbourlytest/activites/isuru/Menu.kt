@@ -40,12 +40,6 @@ class Menu : AppCompatActivity() {
         binding.itemDonationListBtn.setOnClickListener {
             startActivity(Intent(this, ItemDonationListFetch::class.java))
         }
-        binding.donateBtn2.setOnClickListener {
-            startActivity(Intent(this, Donate0Activity::class.java))
-        }
-        binding.donationCategoriesBtn.setOnClickListener {
-            startActivity(Intent(this, DonationCategory::class.java))
-        }
         binding.addArticleBtn.setOnClickListener {
             startActivity(Intent(this, AddArticleActivity::class.java))
         }

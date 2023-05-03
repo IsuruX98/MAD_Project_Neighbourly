@@ -62,10 +62,13 @@ class Donate2AddInfoActivity : AppCompatActivity() {
     }
 
     private fun insert() {
+
+
+
         val name = binding.DinfoName.text.toString()
         val email = binding.DinfoEmail.text.toString()
         val comment = binding.DinfoComment.text.toString()
-        val amount = binding.DinfoPaymentTotal.text.toString()
+        val amount = intent.getStringExtra("amount").toString()
         val today = SimpleDateFormat(
             "yyyy-MM-dd",
             Locale.getDefault()

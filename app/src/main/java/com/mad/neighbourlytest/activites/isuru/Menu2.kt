@@ -7,7 +7,6 @@ import com.mad.neighbourlytest.activites.yasiru.AddArticleActivity
 import com.mad.neighbourlytest.activites.dinidu.AddFamilyActivity
 import com.mad.neighbourlytest.activites.yasiru.Articles
 import com.mad.neighbourlytest.activites.ishara.DonationCategory
-import com.mad.neighbourlytest.activites.dinidu.FamilyList
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
 import com.mad.neighbourlytest.activites.ishara.ItemDonationList
 import com.mad.neighbourlytest.activites.yasiru.MyArticles

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -21,6 +22,7 @@ class ItemDonationListFetch : AppCompatActivity() {
     private lateinit var itemRecyclerView: RecyclerView
     private lateinit var itemList : ArrayList<ItemDonationModel>
     private lateinit var database : DatabaseReference
+    private lateinit var showEmpty : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,7 @@ class ItemDonationListFetch : AppCompatActivity() {
         itemRecyclerView = findViewById(R.id.itemRecycler)
         itemRecyclerView.layoutManager = LinearLayoutManager(this)
         itemRecyclerView.setHasFixedSize(true)
+        showEmpty = findViewById(R.id.emptyList)
 
         itemList = arrayListOf<ItemDonationModel>()
 
@@ -57,7 +60,7 @@ class ItemDonationListFetch : AppCompatActivity() {
                     itemRecyclerView.visibility = View.VISIBLE
 
                 }else{
-                    Log.d("my-tag","mukuth na hehe")
+                    showEmpty.visibility = View.VISIBLE
                 }
             }
 

@@ -81,12 +81,13 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, Donate0Activity::class.java))
             }
             binding.seeAllBtn.setOnClickListener {
-                val type2 = sharedPreferences.getString("type", "").toString()
-                if(type2=="Donor"){
-                    startActivity(Intent(this, Menu2::class.java))
-                }else{
-                    startActivity(Intent(this, Menu::class.java))
-                }
+//                val type2 = sharedPreferences.getString("type", "").toString()
+//                if(type2=="Donor"){
+//                    startActivity(Intent(this, Menu2::class.java))
+//                }else{
+//                    startActivity(Intent(this, Menu::class.java))
+//                }
+                startActivity(Intent(this, Menu2::class.java))
             }
             binding.menuProfile.setOnClickListener {
                 startActivity(Intent(this, Profile::class.java))
@@ -95,12 +96,13 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, ContactUsActivity::class.java))
             }
             binding.categoryBtn.setOnClickListener {
-                val type2 = sharedPreferences.getString("type", "").toString()
-                if(type2=="Donor"){
-                    startActivity(Intent(this, Menu2::class.java))
-                }else{
-                    startActivity(Intent(this, Menu::class.java))
-                }
+//                val type2 = sharedPreferences.getString("type", "").toString()
+//                if(type2=="Donor"){
+//                    startActivity(Intent(this, Menu2::class.java))
+//                }else{
+//                    startActivity(Intent(this, Menu::class.java))
+//                }
+                startActivity(Intent(this, Menu::class.java))
             }
             binding.AboutUsBtnHome.setOnClickListener {
                 startActivity(Intent(this, AboutUsActivity::class.java))

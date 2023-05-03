@@ -25,6 +25,7 @@ class ItemDonationActivity : AppCompatActivity() {
     private lateinit var contactNameDonation : EditText
     private lateinit var contactNumberDonation : EditText
     private lateinit var addBtn : Button
+    private lateinit var homeBtn : Button
 
     //database references
     private lateinit var dataBase : DatabaseReference
@@ -39,6 +40,7 @@ class ItemDonationActivity : AppCompatActivity() {
         contactNameDonation = findViewById(R.id.DBulkContactPersonName)
         contactNumberDonation = findViewById(R.id.DBulkContactPersonMobile)
         addBtn = findViewById(R.id.addDBulkBtn)
+
 
         dataBase = FirebaseDatabase.getInstance().getReference("Donation Items")
 

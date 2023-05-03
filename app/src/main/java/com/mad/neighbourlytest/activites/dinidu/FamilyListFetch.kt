@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.adapters.familyAdapter
+import com.mad.neighbourlytest.adapters.FamilyAdapter
 import com.mad.neighbourlytest.models.FamilyModel
 
 
@@ -52,7 +52,7 @@ class FamilyListFetch : AppCompatActivity() {
 
                         familyList.add(familyData!!)
                     }
-                    val fAdapter = familyAdapter(familyList)
+                    val fAdapter = FamilyAdapter(familyList)
                     userRecyclerView.adapter = fAdapter
                     userRecyclerView.visibility = View.VISIBLE
                 }

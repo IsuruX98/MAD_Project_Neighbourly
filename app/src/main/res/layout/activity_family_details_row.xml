@@ -29,10 +29,10 @@
             android:id="@+id/uName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="vsdvv"
+            android:text=""
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textAlignment="center"
 
 
             />

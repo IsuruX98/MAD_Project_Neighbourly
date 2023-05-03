@@ -37,6 +37,8 @@ class DonateActivity : AppCompatActivity() {
             binding.DonateAmount.isEnabled = true
         }
 
+        val type = intent.getStringExtra("type").toString()
+
         binding.DonateContBtn.setOnClickListener{
             val amount = binding.DonateAmount.text.toString()
             if(amount.isEmpty()){
@@ -45,6 +47,7 @@ class DonateActivity : AppCompatActivity() {
             }
             val intent = Intent(this, Donate2AddInfoActivity::class.java)
             intent.putExtra("amount",amount)
+            intent.putExtra("type",type)
             startActivity(intent)
         }
     }

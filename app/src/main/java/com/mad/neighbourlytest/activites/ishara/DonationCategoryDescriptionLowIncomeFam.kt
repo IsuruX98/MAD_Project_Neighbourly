@@ -16,7 +16,9 @@ class DonationCategoryDescriptionLowIncomeFam : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.orphanBtnDonateNow.setOnClickListener {
-            startActivity(Intent(this, DonateActivity::class.java))
+            val intent = Intent(this, DonateActivity::class.java)
+            intent.putExtra("type","lowIncomeFamily")
+            startActivity(intent)
         }
     }
 }

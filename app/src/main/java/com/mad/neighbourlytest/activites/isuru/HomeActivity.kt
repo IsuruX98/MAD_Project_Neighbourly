@@ -4,12 +4,20 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.activites.dinidu.AboutUsActivity
 import com.mad.neighbourlytest.activites.dinidu.ContactUsActivity
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.databinding.ActivityHomeBinding
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HomeActivity : AppCompatActivity() {
 
@@ -87,6 +95,67 @@ class HomeActivity : AppCompatActivity() {
             binding.AboutUsBtnHome.setOnClickListener {
                 startActivity(Intent(this, AboutUsActivity::class.java))
             }
+
+            val database = FirebaseDatabase.getInstance()
+            val mainFundRef = database.getReference("funds")
+
+            mainFundRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // Now you have the total amount sum in the `totalAmount` variable
+                    // Do whatever you want with it, e.g. update a TextView
+                    binding.totalDonations.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
+            val query = mainFundRef.orderByChild("email").equalTo(email)
+
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // Now you have the total amount sum for the specified username in the `totalAmount` variable
+                    // Do whatever you want with it, e.g. update a TextView
+                    binding.your.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
+            val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) // Get today's date in the format "yyyy-MM-dd"
+
+            val query2 = mainFundRef.orderByChild("date").equalTo(today)
+
+            query2.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // Now you have the total amount sum for today's date in the `totalAmount` variable
+                    // Do whatever you want with it, e.g. update a TextView
+                    binding.today.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
 
         }
 

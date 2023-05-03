@@ -4,12 +4,16 @@ package com.mad.neighbourlytest.activites.ishara
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
+import com.mad.neighbourlytest.activites.isuru.Menu
+import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.models.ItemDonationModel
 
 class ItemDonationActivity : AppCompatActivity() {
@@ -42,6 +46,20 @@ class ItemDonationActivity : AppCompatActivity() {
         addBtn.setOnClickListener {
             saveDonation()
         }
+
+//        binding.menuHome.setOnClickListener {
+//            //making a sharedPreference to access in the app
+//            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//            val type2 = sharedPreferences.getString("type", "").toString()
+//            if(type2=="Donor"){
+//                startActivity(Intent(this, Menu2::class.java))
+//            }else{
+//                startActivity(Intent(this, Menu::class.java))
+//            }
+//        }
+//        binding.menuHome2.setOnClickListener {
+//            startActivity(Intent(this, HomeActivity::class.java))
+//        }
 
 
     }
@@ -94,7 +112,6 @@ class ItemDonationActivity : AppCompatActivity() {
 
         //create donation id using database push method
            val donationID = dataBase.push().key!!
-
            //connect model
            val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
 

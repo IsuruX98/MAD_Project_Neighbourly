@@ -151,11 +151,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/totalDonations"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/total_amount_text"
+            android:text="@string/rs_0"
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -171,16 +171,16 @@
             android:fontFamily="@font/poppins_bold"
             android:text="@string/today_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            app:layout_constraintTop_toBottomOf="@+id/totalDonations" />
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/rs_100_00_text"
+            android:text="@string/rs_0"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView26"
@@ -196,16 +196,16 @@
             android:fontFamily="@font/poppins_bold"
             android:text="@string/your_donations_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            app:layout_constraintTop_toBottomOf="@+id/totalDonations" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/your"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/rs_750_00_text"
+            android:text="@string/rs_0"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView31"

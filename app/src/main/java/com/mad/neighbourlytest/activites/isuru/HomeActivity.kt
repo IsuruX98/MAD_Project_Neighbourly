@@ -4,12 +4,20 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.activites.dinidu.AboutUsActivity
 import com.mad.neighbourlytest.activites.dinidu.ContactUsActivity
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.databinding.ActivityHomeBinding
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HomeActivity : AppCompatActivity() {
 
@@ -73,7 +81,12 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, Donate0Activity::class.java))
             }
             binding.seeAllBtn.setOnClickListener {
-                startActivity(Intent(this, Menu2::class.java))
+                val type2 = sharedPreferences.getString("type", "").toString()
+                if(type2=="Donor"){
+                    startActivity(Intent(this, Menu2::class.java))
+                }else{
+                    startActivity(Intent(this, Menu::class.java))
+                }
             }
             binding.menuProfile.setOnClickListener {
                 startActivity(Intent(this, Profile::class.java))
@@ -82,11 +95,83 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, ContactUsActivity::class.java))
             }
             binding.categoryBtn.setOnClickListener {
-                startActivity(Intent(this, Menu2::class.java))
+                val type2 = sharedPreferences.getString("type", "").toString()
+                if(type2=="Donor"){
+                    startActivity(Intent(this, Menu2::class.java))
+                }else{
+                    startActivity(Intent(this, Menu::class.java))
+                }
             }
             binding.AboutUsBtnHome.setOnClickListener {
                 startActivity(Intent(this, AboutUsActivity::class.java))
             }
+
+            //calculate the total donations that made by all the users
+
+            val database = FirebaseDatabase.getInstance()
+            val mainFundRef = database.getReference("funds")
+
+            mainFundRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // total amount sum in the `totalAmount` variable
+                    // update the TextView
+                    binding.totalDonations.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
+            //calculate the total donations that made by logged in user
+
+            val query = mainFundRef.orderByChild("email").equalTo(email)
+
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // total amount sum for the specified username in the `totalAmount` variable
+                    // update the TextView
+                    binding.your.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
+            //calculate the total donations that made by all users today
+
+            val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) // Get today's date in the format "yyyy-MM-dd"
+
+            val query2 = mainFundRef.orderByChild("date").equalTo(today)
+
+            query2.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // total amount sum for today's date in the `totalAmount` variable
+                    // update the TextView
+                    binding.today.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                }
+            })
+
 
         }
 

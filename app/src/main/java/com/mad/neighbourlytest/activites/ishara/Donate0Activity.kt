@@ -3,6 +3,7 @@ package com.mad.neighbourlytest.activites.ishara
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mad.neighbourlytest.activites.isuru.Donate2AddInfoActivity
 import com.mad.neighbourlytest.activites.isuru.DonateActivity
 import com.mad.neighbourlytest.databinding.ActivityDonate0Binding
 
@@ -16,7 +17,9 @@ class Donate0Activity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.donateMainBtn.setOnClickListener {
-            startActivity(Intent(this, DonateActivity::class.java))
+            val intent = Intent(this, DonateActivity::class.java)
+            intent.putExtra("type","main")
+            startActivity(intent)
         }
 
         binding.donateCategoryBtn.setOnClickListener {

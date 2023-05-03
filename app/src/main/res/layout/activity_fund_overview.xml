@@ -17,7 +17,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/totalFund" />
 
     <TextView
         android:id="@+id/textView53"
@@ -30,36 +30,36 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/totalFund" />
 
     <TextView
-        android:id="@+id/textView44"
+        android:id="@+id/totalFund"
         style="@style/orangeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/total_amount_text"
+        android:text="@string/rs_0"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <TextView
-        android:id="@+id/textView52"
+        android:id="@+id/yourDonations"
         style="@style/orangeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rs_750_00_text"
+        android:text="@string/rs_0"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView50"
         app:layout_constraintStart_toStartOf="@+id/textView50"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
     <TextView
-        android:id="@+id/textView54"
+        android:id="@+id/todayDonations"
         style="@style/orangeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rs_100_00_text"
+        android:text="@string/rs_0"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textView53"
         app:layout_constraintStart_toStartOf="@+id/textView53"
@@ -114,17 +114,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/mainFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="102dp"
         android:layout_marginEnd="80dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/fund_number"
+        android:text="@string/rs_0"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/totalFund" />
 
     <TextView
         android:id="@+id/textView48"
@@ -137,7 +137,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/totalFund" />
 
     <TextView
         android:id="@+id/textView49"
@@ -153,16 +153,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <TextView
-        android:id="@+id/textView47"
+        android:id="@+id/childFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/fund_number"
+        android:text="@string/rs_0"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView40"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintEnd_toEndOf="@+id/mainFund"
+        app:layout_constraintTop_toBottomOf="@+id/mainFund" />
 
     <TextView
         android:id="@+id/textView6"
@@ -175,7 +175,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+        app:layout_constraintTop_toBottomOf="@+id/totalFund" />
 
     <TextView
         android:id="@+id/textView46"
@@ -226,40 +226,40 @@
         app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/schoolFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/fund_number"
+        android:text="@string/rs_0"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView42"
-        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+        app:layout_constraintEnd_toEndOf="@+id/familyFund"
+        app:layout_constraintTop_toBottomOf="@+id/familyFund" />
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/familyFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/fund_number"
+        android:text="@string/rs_0"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintEnd_toEndOf="@+id/eldersFund"
+        app:layout_constraintTop_toBottomOf="@+id/eldersFund" />
 
     <TextView
-        android:id="@+id/textView41"
+        android:id="@+id/eldersFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_regular"
-        android:text="@string/fund_number"
+        android:text="@string/rs_0"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView47"
-        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+        app:layout_constraintEnd_toEndOf="@+id/childFund"
+        app:layout_constraintTop_toBottomOf="@+id/childFund" />
 
     <ImageView
         android:id="@+id/imageView2"

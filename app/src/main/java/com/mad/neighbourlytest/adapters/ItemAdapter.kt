@@ -24,7 +24,6 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_donation_list_one,parent,false)
-
         return ViewHolder(itemView)
     }
 
@@ -46,9 +45,6 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val donationID : TextView = itemView.findViewById(R.id.DonationID)
-
-
-
         val typeDonation : TextView = itemView.findViewById(R.id.inputTypeDonation)
         val qtyDonation : TextView = itemView.findViewById(R.id.inputQty)
         val expDonation : TextView = itemView.findViewById(R.id.inputExp)

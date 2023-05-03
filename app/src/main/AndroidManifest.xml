@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
+            android:name=".activites.dinidu.FamilyListFetch"
+            android:exported="false" />
+        <activity
+            android:name=".activites.dinidu.FullFamilyList"
+            android:exported="false" />
+        <activity
             android:name=".activites.isuru.UserList"
             android:exported="false" />
         <activity
@@ -86,8 +92,6 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-
-
         <activity
             android:name=".activites.ishara.ThankYouActivity"
             android:exported="false" />

@@ -4,6 +4,7 @@ package com.mad.neighbourlytest.activites.ishara
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.google.firebase.database.DatabaseReference
@@ -94,7 +95,6 @@ class ItemDonationActivity : AppCompatActivity() {
 
         //create donation id using database push method
            val donationID = dataBase.push().key!!
-
            //connect model
            val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
 

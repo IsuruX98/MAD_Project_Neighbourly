@@ -63,17 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <TextView
-        android:id="@+id/textView18"
-        style="@style/normalTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="23dp"
-        android:text="Add a Image here..."
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/articleDescription" />
-
     <EditText
         android:id="@+id/subjectArticle"
         style="@style/input"
@@ -93,7 +82,7 @@
         android:id="@+id/articleDescription"
         style="@style/input"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/description_text"
@@ -111,24 +100,11 @@
         style="@style/btnOrangeMain"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:text="@string/post_text"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/articleDescription" />
-
-
-
-    <Button
-        android:id="@+id/addArticleImgBtn"
-        style="@style/btnBlack"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
-        android:text="Choose File"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/articleDescription" />
 
 

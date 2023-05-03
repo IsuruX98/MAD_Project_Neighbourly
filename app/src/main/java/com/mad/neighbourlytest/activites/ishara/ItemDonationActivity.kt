@@ -1,7 +1,6 @@
 package com.mad.neighbourlytest.activites.ishara
 
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +14,7 @@ import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.activites.isuru.Menu
 import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.models.ishara.ItemDonationModel
+import com.mad.neighbourlytest.models.ItemDonationModel
 
 class ItemDonationActivity : AppCompatActivity() {
 

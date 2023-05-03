@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
+        <activity
+            android:name=".activites.ishara.ItemDonationListOne"
+            android:exported="false" />
         <activity
             android:name=".activites.isuru.UserList"
             android:exported="false" />
@@ -67,7 +74,7 @@
             android:name=".activites.dinidu.FamilyList"
             android:exported="false" />
         <activity
-            android:name=".activites.ishara.ItemDonationList"
+            android:name=".activites.ishara.ItemDonationListFetch"
             android:exported="false" />
         <activity
             android:name=".activites.yasiru.Articles"
@@ -83,8 +90,6 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-
-
         <activity
             android:name=".activites.ishara.ThankYouActivity"
             android:exported="false" />

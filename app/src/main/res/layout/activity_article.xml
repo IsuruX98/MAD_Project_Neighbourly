@@ -44,44 +44,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/articleViewSubject"
         style="@style/orangeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/article"
-        android:textSize="30sp"
+        android:text=""
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
-
-    <ImageView
-        android:id="@+id/orphanImg"
-        android:layout_width="369dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/girl1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34"
-        app:srcCompat="@drawable/girl" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="370dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orphanImg">
+        app:layout_constraintTop_toBottomOf="@+id/articleViewSubject">
 
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="184dp"
             android:overScrollMode="never"
             android:scrollbars="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,13 +84,13 @@
                 android:padding="3dp">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/viewArticleDescription2"
                     android:layout_width="wrap_content"
-                    android:layout_height="365dp"
+                    android:layout_height="400dp"
                     android:layout_marginTop="5dp"
                     android:justificationMode="inter_word"
                     android:paddingHorizontal="40dp"
-                    android:text="@string/childtxt"
+                    android:text=""
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -110,9 +99,32 @@
 
         </ScrollView>
 
+        <Button
+            android:id="@+id/btnUpdateArticle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="48dp"
+            android:background="@color/orangeMainColor"
+            android:text="Edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+        <Button
+            android:id="@+id/btnDeleteArticle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+
+            android:background="@color/red"
+            android:text="Delete"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toEndOf="@+id/btnUpdateArticle"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

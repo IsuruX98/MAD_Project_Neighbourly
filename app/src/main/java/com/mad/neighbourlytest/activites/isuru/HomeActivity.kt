@@ -87,6 +87,7 @@ class HomeActivity : AppCompatActivity() {
                 }else{
                     startActivity(Intent(this, Menu::class.java))
                 }
+
             }
             binding.menuProfile.setOnClickListener {
                 startActivity(Intent(this, Profile::class.java))
@@ -101,6 +102,7 @@ class HomeActivity : AppCompatActivity() {
                 }else{
                     startActivity(Intent(this, Menu::class.java))
                 }
+
             }
             binding.AboutUsBtnHome.setOnClickListener {
                 startActivity(Intent(this, AboutUsActivity::class.java))

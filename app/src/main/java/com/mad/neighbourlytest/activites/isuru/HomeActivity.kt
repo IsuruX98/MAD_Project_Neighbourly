@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mad.neighbourlytest.activites.Menu
 import com.mad.neighbourlytest.activites.dinidu.AboutUsActivity
 import com.mad.neighbourlytest.activites.dinidu.ContactUsActivity
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
@@ -81,7 +82,12 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, Donate0Activity::class.java))
             }
             binding.seeAllBtn.setOnClickListener {
-                startActivity(Intent(this, Menu2::class.java))
+                val type2 = sharedPreferences.getString("type", "").toString()
+                if(type2=="Donor"){
+                    startActivity(Intent(this, Menu2::class.java))
+                }else{
+                    startActivity(Intent(this, Menu::class.java))
+                }
             }
             binding.menuProfile.setOnClickListener {
                 startActivity(Intent(this, Profile::class.java))
@@ -90,11 +96,18 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, ContactUsActivity::class.java))
             }
             binding.categoryBtn.setOnClickListener {
-                startActivity(Intent(this, Menu2::class.java))
+                val type2 = sharedPreferences.getString("type", "").toString()
+                if(type2=="Donor"){
+                    startActivity(Intent(this, Menu2::class.java))
+                }else{
+                    startActivity(Intent(this, Menu::class.java))
+                }
             }
             binding.AboutUsBtnHome.setOnClickListener {
                 startActivity(Intent(this, AboutUsActivity::class.java))
             }
+
+            //calculate the total donations that made by all the users
 
             val database = FirebaseDatabase.getInstance()
             val mainFundRef = database.getReference("funds")
@@ -106,8 +119,8 @@ class HomeActivity : AppCompatActivity() {
                         val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                         totalAmount += amount
                     }
-                    // Now you have the total amount sum in the `totalAmount` variable
-                    // Do whatever you want with it, e.g. update a TextView
+                    // total amount sum in the `totalAmount` variable
+                    // update the TextView
                     binding.totalDonations.text = "Rs. $totalAmount"
                 }
 
@@ -115,6 +128,8 @@ class HomeActivity : AppCompatActivity() {
                     Log.e("Firebase", "Error reading mainFund: ${error.message}")
                 }
             })
+
+            //calculate the total donations that made by logged in user
 
             val query = mainFundRef.orderByChild("email").equalTo(email)
 
@@ -125,8 +140,8 @@ class HomeActivity : AppCompatActivity() {
                         val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                         totalAmount += amount
                     }
-                    // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                    // Do whatever you want with it, e.g. update a TextView
+                    // total amount sum for the specified username in the `totalAmount` variable
+                    // update the TextView
                     binding.your.text = "Rs. $totalAmount"
                 }
 
@@ -134,6 +149,8 @@ class HomeActivity : AppCompatActivity() {
                     Log.e("Firebase", "Error reading mainFund: ${error.message}")
                 }
             })
+
+            //calculate the total donations that made by all users today
 
             val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) // Get today's date in the format "yyyy-MM-dd"
 
@@ -146,8 +163,8 @@ class HomeActivity : AppCompatActivity() {
                         val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                         totalAmount += amount
                     }
-                    // Now you have the total amount sum for today's date in the `totalAmount` variable
-                    // Do whatever you want with it, e.g. update a TextView
+                    // total amount sum for today's date in the `totalAmount` variable
+                    // update the TextView
                     binding.today.text = "Rs. $totalAmount"
                 }
 

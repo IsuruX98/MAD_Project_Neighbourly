@@ -24,7 +24,6 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_donation_list_one,parent,false)
-
         return ViewHolder(itemView)
     }
 

@@ -46,9 +46,6 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val donationID : TextView = itemView.findViewById(R.id.DonationID)
-
-
-
         val typeDonation : TextView = itemView.findViewById(R.id.inputTypeDonation)
         val qtyDonation : TextView = itemView.findViewById(R.id.inputQty)
         val expDonation : TextView = itemView.findViewById(R.id.inputExp)

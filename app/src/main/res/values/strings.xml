@@ -227,4 +227,5 @@ Join us in our mission to support low-income families. Your contributions can ma
     <string name="donationID">Donation ID</string>
     <string name="viewArticle">View</string>
     <string name="emptyList">No Items to Show</string>
+    <string name="dispatchedItems">Dispatched Items</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.mad.neighbourlytest.activites.ishara
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -57,6 +59,8 @@ class ItemDonationListFetch : AppCompatActivity() {
 
                     itemRecyclerView.visibility = View.VISIBLE
 
+                }else{
+                    Log.d("my-tag","mukuth na hehe")
                 }
             }
 

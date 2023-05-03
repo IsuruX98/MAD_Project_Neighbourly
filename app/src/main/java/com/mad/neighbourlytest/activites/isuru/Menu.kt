@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.activites.dinidu.AddFamilyActivity
-import com.mad.neighbourlytest.activites.dinidu.FamilyList
+import com.mad.neighbourlytest.activites.dinidu.FamilyListFetch
+
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.activites.ishara.DonationCategory
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
@@ -35,7 +36,7 @@ class Menu : AppCompatActivity() {
             startActivity(Intent(this, AddFamilyActivity::class.java))
         }
         binding.familyListBtn.setOnClickListener {
-            startActivity(Intent(this, FamilyList::class.java))
+            startActivity(Intent(this, FamilyListFetch::class.java))
         }
         binding.itemDonationListBtn.setOnClickListener {
             startActivity(Intent(this, ItemDonationListFetch::class.java))

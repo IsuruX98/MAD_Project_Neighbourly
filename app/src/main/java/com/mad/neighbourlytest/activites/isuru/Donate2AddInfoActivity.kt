@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.activites.ishara.ThankYouActivity
 import com.mad.neighbourlytest.databinding.ActivityDonate2AddInfoBinding
-import com.mad.neighbourlytest.models.isuru.MainFundModel
+import com.mad.neighbourlytest.models.MainFundModel
 import java.util.UUID
 
 class Donate2AddInfoActivity : AppCompatActivity() {

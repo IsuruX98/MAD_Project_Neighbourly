@@ -117,6 +117,7 @@ class ItemDonationActivity : AppCompatActivity() {
         }
 
 
+
         //create donation id using database push method
            val donationID = dataBase.push().key!!
            //connect model

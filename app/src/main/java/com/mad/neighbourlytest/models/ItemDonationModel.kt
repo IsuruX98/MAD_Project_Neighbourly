@@ -6,5 +6,6 @@ class ItemDonationModel (
     val quantityDonation : String? = null,
     val expDonation : String? = null,
     val contactName : String? = null,
-    val contactNum : String?= null
+    val contactNum : String?= null,
+    val dispatched : Boolean = false,
 )

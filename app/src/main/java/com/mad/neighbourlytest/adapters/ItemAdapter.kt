@@ -17,14 +17,13 @@ import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
 import com.mad.neighbourlytest.activites.ishara.ThankYouActivity
 import com.mad.neighbourlytest.models.ItemDonationModel
-
+import org.checkerframework.checker.units.qual.Current
 
 
 class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_donation_list_one,parent,false)
-
         return ViewHolder(itemView)
     }
 
@@ -32,10 +31,22 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         val currentItem = itemDonateList[position]
         holder.typeDonation.text = currentItem.typeDonation
         holder.qtyDonation.text = currentItem.quantityDonation
-        holder.expDonation.text = currentItem.expDonation
         holder.contactNameDonation.text = currentItem.contactName
         holder.contactNumDonation.text = currentItem.contactNum
         holder.donationID.text = currentItem.donationID
+
+
+        if (currentItem.expDonation != "") {
+            holder.expDonation.text = currentItem.expDonation
+        } else {
+            holder.expDonation.text = "No Expiry"
+        }
+
+        if(currentItem.dispatched){
+            holder.itemDispatched.text = "Item Dispatched"
+        }else{
+            holder.itemDispatched.text = "Item Not Yet Dispatched"
+        }
 
 
     }
@@ -46,16 +57,15 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val donationID : TextView = itemView.findViewById(R.id.DonationID)
-
-
-
         val typeDonation : TextView = itemView.findViewById(R.id.inputTypeDonation)
         val qtyDonation : TextView = itemView.findViewById(R.id.inputQty)
         val expDonation : TextView = itemView.findViewById(R.id.inputExp)
         val contactNameDonation : TextView = itemView.findViewById(R.id.inputContactName)
         val contactNumDonation : TextView = itemView.findViewById(R.id.inputContactNum)
+        val itemDispatched : TextView = itemView.findViewById(R.id.itemDispatched)
         private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
         private val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
+
 
         private fun deleteItem(id: String){
 
@@ -80,6 +90,33 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
             }
         }
 
+        private fun dispatchItem(id: String){
+            Log.d("Debug", "Dispatching item with ID: $id")
+            val database : DatabaseReference = FirebaseDatabase.getInstance().getReference("Donation Items")
+            val newValue = true
+            Log.d("Debug", "Dispatching item with ID: $newValue")
+            val task = database.child(id).child("dispatched").setValue(newValue)
+            task.addOnSuccessListener {
+                Log.d("Debug", "Item dispatch status updated to 'true'")
+                SweetAlertDialog(itemView.context, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Success!!")
+                    .setContentText("Item Dispatched Successfully")
+                    .setConfirmClickListener {
+                            sDialog: SweetAlertDialog -> sDialog.dismissWithAnimation()
+
+                    }.show()
+            }
+            task.addOnFailureListener { error ->
+                Log.d("Debug", "Failed to update item dispatch status: ${error.message}")
+                SweetAlertDialog(itemView.context, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Error!!")
+                    .setContentText("Dispatch Error ${error.message}")
+                    .setConfirmClickListener {
+                            sDialog: SweetAlertDialog -> sDialog.dismissWithAnimation()
+                    }.show()
+            }
+        }
+
 
         init {
             deleteButton.setOnClickListener {
@@ -89,7 +126,6 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
                     .setContentText("Are you sure you want to delete this item?")
                     .setConfirmText("Yes")
                     .setConfirmClickListener { sDialog: SweetAlertDialog ->
-                        Log.d("My-log",textID)
                         deleteItem(textID)
                         sDialog.dismissWithAnimation()
                     }
@@ -100,7 +136,20 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
                     .show()
             }
             dispatchButton.setOnClickListener {
-
+                val textID = donationID.text.toString()
+                SweetAlertDialog(itemView.context, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Dispatch Item")
+                    .setContentText("Is this Item Dispatched?")
+                    .setConfirmText("Yes")
+                    .setConfirmClickListener { sDialog: SweetAlertDialog ->
+                        dispatchItem(textID)
+                        sDialog.dismissWithAnimation()
+                    }
+                    .setCancelText("No")
+                    .setCancelClickListener { sDialog: SweetAlertDialog ->
+                        sDialog.cancel()
+                    }
+                    .show()
             }
 
 

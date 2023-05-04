@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.activites.yasiru
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.security.identity.AccessControlProfileId
@@ -27,6 +28,7 @@ class Article : AppCompatActivity() {
         subject = findViewById(R.id.articleViewSubject)
         description = findViewById(R.id.viewArticleDescription2)
         btnEdit = findViewById(R.id.btnUpdateArticle)
+        btnDelete = findViewById(R.id.btnDeleteArticle)
 
 
         //set values to views
@@ -40,6 +42,12 @@ class Article : AppCompatActivity() {
                 intent.getStringExtra("Id").toString(),
                 intent.getStringExtra("subject").toString(),
                 intent.getStringExtra("description").toString()
+            )
+        }
+
+        btnDelete.setOnClickListener {
+            deleteRecord(
+                intent.getStringExtra("Id").toString()
             )
         }
     }
@@ -61,6 +69,7 @@ class Article : AppCompatActivity() {
         val descriptions= mDialogView.findViewById<EditText>(R.id.editArticleDescription)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.editArticleUpdateBtn)
+        val btnDeleteArticle = mDialogView.findViewById<Button>(R.id.btnDeleteArticle)
 
         IDs.setText(intent.getStringExtra("Id").toString())
         subjects.setText(intent.getStringExtra("subject").toString())
@@ -79,8 +88,6 @@ class Article : AppCompatActivity() {
 
             )
 
-
-
             //we are setting updated data to our textviews
 
             subject.text = subjects.text.toString()
@@ -88,6 +95,9 @@ class Article : AppCompatActivity() {
 
             alertDialog.dismiss()
         }
+
+
+
 
 
     }
@@ -106,6 +116,24 @@ class Article : AppCompatActivity() {
                 error->
                 Toast.makeText(applicationContext, "Article Not updated.${error}", Toast.LENGTH_LONG).show()
             }
+    }
+
+
+    private fun deleteRecord(
+        iD: String
+    ){
+        val dbRef = FirebaseDatabase.getInstance().getReference("articles").child(iD)
+        val mTask = dbRef.removeValue()
+
+        mTask.addOnSuccessListener {
+            Toast.makeText(this, "Article deleted", Toast.LENGTH_LONG).show()
+
+            val intent = Intent(this, MyArticles::class.java)
+            finish()
+            startActivity(intent)
+        }.addOnFailureListener{ error ->
+            Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
+        }
     }
 
 

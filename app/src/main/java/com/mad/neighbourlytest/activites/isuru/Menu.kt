@@ -4,15 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.activites.dinidu.AddFamilyActivity
 import com.mad.neighbourlytest.activites.dinidu.FamilyList
-import com.mad.neighbourlytest.activites.ishara.Donate0Activity
-import com.mad.neighbourlytest.activites.ishara.DonationCategory
-import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
+import com.mad.neighbourlytest.activites.ishara.ItemDispatchedFetch
 import com.mad.neighbourlytest.activites.ishara.ItemDonationListFetch
 import com.mad.neighbourlytest.activites.yasiru.AddArticleActivity
-import com.mad.neighbourlytest.activites.yasiru.Articles
 import com.mad.neighbourlytest.activites.yasiru.MyArticles
 import com.mad.neighbourlytest.databinding.ActivityMenuBinding
 
@@ -43,6 +39,10 @@ class Menu : AppCompatActivity() {
         binding.addArticleBtn.setOnClickListener {
             startActivity(Intent(this, AddArticleActivity::class.java))
         }
+        binding.itemDispatchedListBtn.setOnClickListener {
+            startActivity(Intent(this,ItemDispatchedFetch::class.java))
+        }
+
         binding.menuHome.setOnClickListener {
             //making a sharedPreference to access in the app
             val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)

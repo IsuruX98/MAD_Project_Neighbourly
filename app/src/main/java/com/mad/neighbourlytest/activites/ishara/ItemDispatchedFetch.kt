@@ -23,8 +23,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
     private lateinit var itemList : ArrayList<ItemDonationModel>
     private lateinit var database : DatabaseReference
     private lateinit var showEmpty : TextView
-    private lateinit var dispatchBtn : Button
-    private lateinit var delBtn : Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +33,9 @@ class ItemDispatchedFetch: AppCompatActivity() {
 
         itemRecyclerView = findViewById(R.id.itemRecycler)
         itemRecyclerView.layoutManager = LinearLayoutManager(this)
+        //set fixed size to recycler view
         itemRecyclerView.setHasFixedSize(true)
         showEmpty = findViewById(R.id.emptyList)
-
-
 
         itemList = arrayListOf<ItemDonationModel>()
 

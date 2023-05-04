@@ -51,7 +51,12 @@ class ItemDonationListFetch : AppCompatActivity() {
                     for(items in snapshot.children){
 
                         val itemData = items.getValue(ItemDonationModel::class.java)
-                        itemList.add(itemData!!)
+                        if (itemData != null) {
+                            if(!itemData.dispatched){
+                                itemList.add(itemData!!)
+                            }
+                        }
+
                     }
 
                     val mAdapter = ItemAdapter(itemList)

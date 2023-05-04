@@ -17,7 +17,7 @@ class Article : AppCompatActivity() {
     private lateinit var subject : TextView
     private lateinit var id : TextView
     private lateinit var description :  TextView
-    private lateinit var btnUpdate : Button
+    private lateinit var btnEdit : Button
     private lateinit var btnDelete : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,25 +26,22 @@ class Article : AppCompatActivity() {
         id = findViewById(R.id.articleId)
         subject = findViewById(R.id.articleViewSubject)
         description = findViewById(R.id.viewArticleDescription2)
-        btnUpdate = findViewById(R.id.btnUpdateArticle)
-
-        setValuesToViews()
+        btnEdit = findViewById(R.id.btnUpdateArticle)
 
 
-        btnUpdate.setOnClickListener {
+        //set values to views
+        id.text = intent.getStringExtra("id")
+        subject.text = intent.getStringExtra("subject")
+        description.text = intent.getStringExtra("description")
+
+
+        btnEdit.setOnClickListener {
             openUpdateDialog(
                 intent.getStringExtra("Id").toString(),
                 intent.getStringExtra("subject").toString(),
                 intent.getStringExtra("description").toString()
             )
         }
-    }
-
-
-    private fun setValuesToViews(){
-        id.text = intent.getStringExtra("id")
-        subject.text = intent.getStringExtra("subject")
-        description.text = intent.getStringExtra("description")
     }
 
 
@@ -69,7 +66,7 @@ class Article : AppCompatActivity() {
         subjects.setText(intent.getStringExtra("subject").toString())
         descriptions.setText(intent.getStringExtra("description").toString())
 
-        mDialog.setTitle("Updating $etsubject Record")
+        mDialog.setTitle("Updating $etsubject")
 
         val alertDialog = mDialog.create()
         alertDialog.show()
@@ -81,8 +78,8 @@ class Article : AppCompatActivity() {
                 descriptions.text.toString()
 
             )
-            System.out.println(ID)
-            Toast.makeText(applicationContext, "Employee Data Updated", Toast.LENGTH_LONG).show()
+
+
 
             //we are setting updated data to our textviews
 
@@ -100,9 +97,15 @@ class Article : AppCompatActivity() {
         subject: String,
         description: String
     ) {
-        val dbRef = FirebaseDatabase.getInstance().getReference("Employees").child(iD)
+        val dbRef = FirebaseDatabase.getInstance().getReference("articles").child(iD)
         val artInfo = ArticleModel(iD, subject, description)
         dbRef.setValue(artInfo)
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "Article updated", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener {
+                error->
+                Toast.makeText(applicationContext, "Article Not updated.${error}", Toast.LENGTH_LONG).show()
+            }
     }
 
 

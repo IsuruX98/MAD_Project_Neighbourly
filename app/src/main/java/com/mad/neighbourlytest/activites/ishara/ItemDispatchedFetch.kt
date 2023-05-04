@@ -36,8 +36,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
         itemRecyclerView.layoutManager = LinearLayoutManager(this)
         itemRecyclerView.setHasFixedSize(true)
         showEmpty = findViewById(R.id.emptyList)
-        dispatchBtn = findViewById(R.id.dispatchedBtnDonation)
-        delBtn = findViewById(R.id.deleteBtn)
+
 
 
         itemList = arrayListOf<ItemDonationModel>()

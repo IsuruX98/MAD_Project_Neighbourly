@@ -58,7 +58,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
                         val itemData = items.getValue(ItemDonationModel::class.java)
                         if (itemData != null) {
                             if(itemData.dispatched){
-                                itemList.add(itemData!!)
+                                itemList.add(itemData)
                             }
                         }
 

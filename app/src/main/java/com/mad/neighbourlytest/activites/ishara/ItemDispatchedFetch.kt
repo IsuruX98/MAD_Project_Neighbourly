@@ -1,10 +1,10 @@
 package com.mad.neighbourlytest.activites.ishara
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,22 +17,27 @@ import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.adapters.ItemAdapter
 import com.mad.neighbourlytest.models.ItemDonationModel
 
-class ItemDonationListFetch : AppCompatActivity() {
+class ItemDispatchedFetch: AppCompatActivity() {
 
     private lateinit var itemRecyclerView: RecyclerView
     private lateinit var itemList : ArrayList<ItemDonationModel>
     private lateinit var database : DatabaseReference
     private lateinit var showEmpty : TextView
+    private lateinit var dispatchBtn : Button
+    private lateinit var delBtn : Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_donation_list)
+        setContentView(R.layout.activity_item_dispatched_fetch)
 
 
         itemRecyclerView = findViewById(R.id.itemRecycler)
         itemRecyclerView.layoutManager = LinearLayoutManager(this)
         itemRecyclerView.setHasFixedSize(true)
         showEmpty = findViewById(R.id.emptyList)
+
+
 
         itemList = arrayListOf<ItemDonationModel>()
 
@@ -52,7 +57,7 @@ class ItemDonationListFetch : AppCompatActivity() {
 
                         val itemData = items.getValue(ItemDonationModel::class.java)
                         if (itemData != null) {
-                            if(!itemData.dispatched){
+                            if(itemData.dispatched){
                                 itemList.add(itemData!!)
                             }
                         }
@@ -63,6 +68,7 @@ class ItemDonationListFetch : AppCompatActivity() {
                     itemRecyclerView.adapter = mAdapter
 
                     itemRecyclerView.visibility = View.VISIBLE
+
 
                 }else{
                     showEmpty.visibility = View.VISIBLE

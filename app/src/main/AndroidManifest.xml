@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
+            android:name=".activites.ishara.ItemDispatchedFetch"
+            android:exported="false" />
+        <activity
             android:name=".activites.yasiru.ActivityOneArticle"
             android:exported="false" />
         <activity

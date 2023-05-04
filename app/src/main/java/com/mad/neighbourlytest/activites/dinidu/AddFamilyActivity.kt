@@ -58,24 +58,29 @@ class AddFamilyActivity : AppCompatActivity() {
         if(familyName.isEmpty()){
 
             famName.error ="Please Enter Name"
+            return
         }
         if(noMembers.isEmpty()){
 
             famMembers.error ="Please Enter Number of Family Members"
+            return
 
         }
         if(familyAddress.isEmpty()){
 
             famAddress.error ="Please Enter Family Address"
+            return
         }
         if(familyConNumber.isEmpty()){
 
             contactNo.error="Please Enter Contact Number"
+            return
 
         }
         if(familyJob.isEmpty()){
 
             famJob.error="Please Enter Job"
+            return
         }
 
         val  familyID =dbRef.push().key!!

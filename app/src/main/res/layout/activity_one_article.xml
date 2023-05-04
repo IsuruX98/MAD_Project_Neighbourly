@@ -42,6 +42,15 @@
         android:layout_marginTop="10dp"
         android:visibility="gone"
         android:fontFamily="@font/poppins_regular"/>
+    <TextView
+        android:id="@+id/articleId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_regular"/>
 
 
 

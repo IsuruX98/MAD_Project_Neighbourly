@@ -3,6 +3,7 @@ package com.mad.neighbourlytest.activites.dinidu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ class FamilyListFetch : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("debug", "EditFamilyActivity onCreate() called")
         setContentView(R.layout.activity_family_list_fetch)
 
         userRecyclerView = findViewById(R.id.recycleView)

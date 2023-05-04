@@ -13,19 +13,19 @@ import com.mad.neighbourlytest.models.FamilyModel
 
 class FamilyAdapter(private val familyList:ArrayList<FamilyModel>): RecyclerView.Adapter<FamilyAdapter.MyViewHolder>(){
 
-//    private lateinit var  mListner:OnItemClickListner
+    private lateinit var  mListener:OnItemClickListener
 
-//    interface OnItemClickListner{
-//
-//        fun onItemClick(position: Int)
-//    }
-//    fun setOnItemClickListner(clickListner: OnItemClickListner){
-//        mListner = clickListner
-//    }
+   interface OnItemClickListener{
+
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(clickListener: OnItemClickListener){
+        mListener = clickListener
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView= LayoutInflater.from(parent.context).inflate(R.layout.activity_family_details_row,parent,false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView,mListener)
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +45,7 @@ class FamilyAdapter(private val familyList:ArrayList<FamilyModel>): RecyclerView
         init {
 
 //            itemView.setOnClickListener{
-//                clickListner.onItemClick(adapterPosition)
+//                clickListener.onItemClick(adapterPosition)
 //            }
         }
     }

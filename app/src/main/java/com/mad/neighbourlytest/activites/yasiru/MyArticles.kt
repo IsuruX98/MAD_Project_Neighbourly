@@ -59,9 +59,10 @@ class MyArticles : AppCompatActivity() {
                     mAdapter.setOnItemClickListner(object : ArticleAdapter.OnItemClickListner{
                         override fun onItemClick(position: Int) {
                             val intent = Intent(this@MyArticles, Article::class.java)
-
-                            intent.putExtra("subject", articles[position].subject)
+                            intent.putExtra("Id",articles[position].articleId)
                             intent.putExtra("description", articles[position].description)
+                            intent.putExtra("subject", articles[position].subject)
+
                             startActivity(intent)
                         }
 

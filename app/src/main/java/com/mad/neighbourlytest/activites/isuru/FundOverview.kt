@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.databinding.ActivityFundOverviewBinding
 import java.text.SimpleDateFormat
@@ -27,6 +28,7 @@ class FundOverview : AppCompatActivity() {
         //making a sharedPreference to access in the app
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val email2 = sharedPreferences.getString("email", "").toString()
+        val type2 = sharedPreferences.getString("type", "").toString()
 
         val database = FirebaseDatabase.getInstance()
         val mainFundRef = database.getReference("funds")
@@ -50,26 +52,44 @@ class FundOverview : AppCompatActivity() {
             }
         })
 
-        //calculate the total donations that made by the logged in user
+        if(type2 == "Admin"){
 
-        val query = mainFundRef.orderByChild("email").equalTo(email2)
+            //calculate the user count
 
-        query.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var totalAmount = 0
-                for (childSnapshot in dataSnapshot.children) {
-                    val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
-                    totalAmount += amount
+            val db = FirebaseFirestore.getInstance()
+            val usersRef = db.collection("USERS")
+
+            usersRef.get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val count = task.result?.size() ?: 0
+                    binding.adminText.text = "Total Users"
+                    binding.yourDonations.text = "$count"
+                } else {
+                    Log.e("Firestore", "Error getting documents: ${task.exception}")
                 }
-                // total amount sum for the specified username in the `totalAmount` variable
-                // update the TextView
-                binding.yourDonations.text = "Rs. $totalAmount"
             }
+        }else{
+            //calculate the total donations that made by the logged in user
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading : ${error.message}")
-            }
-        })
+            val query = mainFundRef.orderByChild("email").equalTo(email2)
+
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    var totalAmount = 0
+                    for (childSnapshot in dataSnapshot.children) {
+                        val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
+                        totalAmount += amount
+                    }
+                    // total amount sum for the specified username in the `totalAmount` variable
+                    // update the TextView
+                    binding.yourDonations.text = "Rs. $totalAmount"
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase", "Error reading : ${error.message}")
+                }
+            })
+        }
 
         //calculate the total donations that made by today date
 

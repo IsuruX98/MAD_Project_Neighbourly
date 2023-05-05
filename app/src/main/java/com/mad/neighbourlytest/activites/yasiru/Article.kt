@@ -15,11 +15,11 @@ import com.mad.neighbourlytest.models.yasiru.ArticleModel
 
 class Article : AppCompatActivity() {
 
-    private lateinit var subject : TextView
-    private lateinit var id : TextView
-    private lateinit var description :  TextView
-    private lateinit var btnEdit : Button
-    private lateinit var btnDelete : Button
+    private lateinit var subject: TextView
+    private lateinit var id: TextView
+    private lateinit var description: TextView
+    private lateinit var btnEdit: Button
+    private lateinit var btnDelete: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
@@ -56,7 +56,7 @@ class Article : AppCompatActivity() {
     private fun openUpdateDialog(
         ID: String,
         etsubject: String,
-        etdescription : String
+        etdescription: String
     ) {
         val mDialog = AlertDialog.Builder(this)
         val inflater = layoutInflater
@@ -66,10 +66,9 @@ class Article : AppCompatActivity() {
 
         val IDs = mDialogView.findViewById<EditText>(R.id.editArticleId)
         val subjects = mDialogView.findViewById<EditText>(R.id.editArticleSubject)
-        val descriptions= mDialogView.findViewById<EditText>(R.id.editArticleDescription)
+        val descriptions = mDialogView.findViewById<EditText>(R.id.editArticleDescription)
 
         val btnUpdateData = mDialogView.findViewById<Button>(R.id.editArticleUpdateBtn)
-        val btnDeleteArticle = mDialogView.findViewById<Button>(R.id.btnDeleteArticle)
 
         IDs.setText(intent.getStringExtra("Id").toString())
         subjects.setText(intent.getStringExtra("subject").toString())
@@ -89,17 +88,11 @@ class Article : AppCompatActivity() {
             )
 
             //we are setting updated data to our textviews
-
             subject.text = subjects.text.toString()
             description.text = descriptions.text.toString()
 
             alertDialog.dismiss()
         }
-
-
-
-
-
     }
 
     private fun updateArticle(
@@ -112,16 +105,19 @@ class Article : AppCompatActivity() {
         dbRef.setValue(artInfo)
             .addOnSuccessListener {
                 Toast.makeText(applicationContext, "Article updated", Toast.LENGTH_LONG).show()
-            }.addOnFailureListener {
-                error->
-                Toast.makeText(applicationContext, "Article Not updated.${error}", Toast.LENGTH_LONG).show()
+            }.addOnFailureListener { error ->
+                Toast.makeText(
+                    applicationContext,
+                    "Article Not updated.${error}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 
 
     private fun deleteRecord(
         iD: String
-    ){
+    ) {
         val dbRef = FirebaseDatabase.getInstance().getReference("articles").child(iD)
         val mTask = dbRef.removeValue()
 
@@ -131,14 +127,10 @@ class Article : AppCompatActivity() {
             val intent = Intent(this, MyArticles::class.java)
             finish()
             startActivity(intent)
-        }.addOnFailureListener{ error ->
+        }.addOnFailureListener { error ->
             Toast.makeText(this, "Deleting Err ${error.message}", Toast.LENGTH_LONG).show()
         }
     }
-
-
-
-
 
 
 }

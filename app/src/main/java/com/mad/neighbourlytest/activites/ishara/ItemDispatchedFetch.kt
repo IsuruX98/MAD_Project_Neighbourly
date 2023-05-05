@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -23,8 +24,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
     private lateinit var itemList : ArrayList<ItemDonationModel>
     private lateinit var database : DatabaseReference
     private lateinit var showEmpty : TextView
-    private lateinit var dispatchBtn : Button
-    private lateinit var delBtn : Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +34,9 @@ class ItemDispatchedFetch: AppCompatActivity() {
 
         itemRecyclerView = findViewById(R.id.itemRecycler)
         itemRecyclerView.layoutManager = LinearLayoutManager(this)
+        //set fixed size to recycler view
         itemRecyclerView.setHasFixedSize(true)
         showEmpty = findViewById(R.id.emptyList)
-
-
 
         itemList = arrayListOf<ItemDonationModel>()
 
@@ -58,7 +57,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
                         val itemData = items.getValue(ItemDonationModel::class.java)
                         if (itemData != null) {
                             if(itemData.dispatched){
-                                itemList.add(itemData!!)
+                                itemList.add(itemData)
                             }
                         }
 
@@ -76,7 +75,8 @@ class ItemDispatchedFetch: AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Log.e("error-Tag", "Database error occurred: ${error.message}")
+                Toast.makeText(this@ItemDispatchedFetch, "Database error occurred", Toast.LENGTH_SHORT).show()
             }
 
         })

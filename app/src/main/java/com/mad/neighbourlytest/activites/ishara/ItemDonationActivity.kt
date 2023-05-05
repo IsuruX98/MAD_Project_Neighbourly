@@ -136,6 +136,7 @@ class ItemDonationActivity : AppCompatActivity() {
                    val intent = Intent(this, ThankYouActivity::class.java)
                    startActivity(intent)
 
+                   //if failed
                }.addOnFailureListener{
                        err -> SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                    .setTitleText("Error")

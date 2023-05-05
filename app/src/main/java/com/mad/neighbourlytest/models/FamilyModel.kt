@@ -10,4 +10,5 @@ class FamilyModel (
     val familyConNumber:String?=null,
     val familyJob:String?=null,
     val volunteerEmail:String?=null
+
 )

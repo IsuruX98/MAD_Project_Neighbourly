@@ -83,6 +83,9 @@
         <activity
             android:name=".activites.yasiru.Articles"
             android:exported="false" />
+        <activity android:name=".activites.dinidu.FamilyListFetch"
+            android:exported="false"/>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

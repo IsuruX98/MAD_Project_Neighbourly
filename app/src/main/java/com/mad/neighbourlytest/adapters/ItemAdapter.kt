@@ -44,9 +44,12 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
         if(currentItem.dispatched){
             holder.itemDispatched.text = "Item Dispatched"
+            holder.dispatchButton.visibility = View.GONE
+
         }else{
             holder.itemDispatched.text = "Item Not Yet Dispatched"
         }
+
 
 
     }
@@ -63,8 +66,8 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         val contactNameDonation : TextView = itemView.findViewById(R.id.inputContactName)
         val contactNumDonation : TextView = itemView.findViewById(R.id.inputContactNum)
         val itemDispatched : TextView = itemView.findViewById(R.id.itemDispatched)
-        private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
-        private val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
+         private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
+        val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
 
 
         private fun deleteItem(id: String){
@@ -91,13 +94,13 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         }
 
         private fun dispatchItem(id: String){
-            Log.d("Debug", "Dispatching item with ID: $id")
+
             val database : DatabaseReference = FirebaseDatabase.getInstance().getReference("Donation Items")
             val newValue = true
-            Log.d("Debug", "Dispatching item with ID: $newValue")
+
             val task = database.child(id).child("dispatched").setValue(newValue)
             task.addOnSuccessListener {
-                Log.d("Debug", "Item dispatch status updated to 'true'")
+
                 SweetAlertDialog(itemView.context, SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Success!!")
                     .setContentText("Item Dispatched Successfully")

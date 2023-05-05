@@ -12,6 +12,7 @@ import com.mad.neighbourlytest.activites.dinidu.FamilyList
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.activites.ishara.ItemDonationActivity
 import com.mad.neighbourlytest.activites.ishara.ItemDonationListFetch
+import com.mad.neighbourlytest.activites.ishara.ViewMyItemDonations
 import com.mad.neighbourlytest.activites.yasiru.MyArticles
 import com.mad.neighbourlytest.databinding.ActivityMenu2Binding
 
@@ -26,7 +27,7 @@ class Menu2 : AppCompatActivity() {
 
 
         binding.articlesBtn.setOnClickListener {
-            startActivity(Intent(this, Articles::class.java))
+            startActivity(Intent(this, MyArticles::class.java))
         }
         binding.donateBtn.setOnClickListener {
             startActivity(Intent(this, Donate0Activity::class.java))
@@ -36,6 +37,10 @@ class Menu2 : AppCompatActivity() {
         }
         binding.itemDonations.setOnClickListener {
             startActivity(Intent(this, ItemDonationActivity::class.java))
+        }
+
+        binding.viewMyDonations.setOnClickListener {
+            startActivity(Intent(this,ViewMyItemDonations::class.java))
         }
         binding.menuHome.setOnClickListener {
             //making a sharedPreference to access in the app

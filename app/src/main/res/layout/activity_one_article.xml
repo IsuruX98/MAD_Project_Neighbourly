@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/article1" />
+            android:background="@drawable/articleicon" />
     </androidx.cardview.widget.CardView>
 
     <TextView

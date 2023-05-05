@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.ishara.DonationCategory">
-
+    tools:context=".activites.ishara.ViewMyItemDonations">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,7 +41,7 @@
                     android:textSize="20dp"
                     android:visibility="gone"
                     android:textAlignment="center"
-                  />
+                    />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/itemRecycler"
@@ -57,8 +56,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:listitem="@layout/activity_item_donation_list_one" />
-
-
 
 
             </LinearLayout>
@@ -99,11 +96,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

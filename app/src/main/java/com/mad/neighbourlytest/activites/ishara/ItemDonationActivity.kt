@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.google.firebase.auth.FirebaseAuth
 import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.activites.isuru.Menu
 import com.mad.neighbourlytest.activites.isuru.Menu2
@@ -28,6 +29,8 @@ class ItemDonationActivity : AppCompatActivity() {
     private lateinit var addBtn : Button
     private lateinit var homeBtn : ImageView
     private lateinit var menuBtn : ImageView
+    private lateinit var auth: FirebaseAuth
+
 
     //database references
     private lateinit var dataBase : DatabaseReference
@@ -44,8 +47,7 @@ class ItemDonationActivity : AppCompatActivity() {
         addBtn = findViewById(R.id.addDBulkBtn)
         homeBtn = findViewById(R.id.menuHome2)
         menuBtn = findViewById(R.id.menuHome)
-
-
+        auth = FirebaseAuth.getInstance()
 
         dataBase = FirebaseDatabase.getInstance().getReference("Donation Items")
 
@@ -77,6 +79,7 @@ class ItemDonationActivity : AppCompatActivity() {
         val exp = expireDonation.text.toString()
         val cName = contactNameDonation.text.toString()
         val cNum = contactNumberDonation.text.toString()
+        val user = auth.currentUser?.email
 
         //check null value validation
         if (type.isEmpty()) {
@@ -121,7 +124,7 @@ class ItemDonationActivity : AppCompatActivity() {
         //create donation id using database push method
            val donationID = dataBase.push().key!!
            //connect model
-           val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
+           val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum,false,user)
 
 
            dataBase.child(donationID).setValue(itemDonation)
@@ -136,6 +139,7 @@ class ItemDonationActivity : AppCompatActivity() {
                    val intent = Intent(this, ThankYouActivity::class.java)
                    startActivity(intent)
 
+                   //if failed
                }.addOnFailureListener{
                        err -> SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                    .setTitleText("Error")

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.models.yasiru.ArticleModel
+import com.mad.neighbourlytest.models.ArticleModel
 
 class ArticleAdapter (private val articles : ArrayList<ArticleModel>) : RecyclerView.Adapter<ArticleAdapter.ViewHolder>(){
 

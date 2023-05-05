@@ -31,6 +31,7 @@ class EditProfile : AppCompatActivity() {
         val id2 = sharedPreferences.getString("id", "").toString()
         val type2 = sharedPreferences.getString("type", "").toString()
 
+        //setting thr values of the layout
         binding.editMobile.setText(mobile2)
         binding.editEmail.setText(email2)
         binding.editNIC.setText(id2)
@@ -109,6 +110,7 @@ class EditProfile : AppCompatActivity() {
         val collectionRef = db.collection("USERS")
         val documentRef = collectionRef.document(email)
 
+        // Show confirmation dialog before deleting data
         SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
             .setTitleText("Delete")
             .setContentText("Are you sure you want to delete your account?")
@@ -119,7 +121,7 @@ class EditProfile : AppCompatActivity() {
                     Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
                     // Log out user
                     FirebaseAuth.getInstance().signOut()
-                    // Redirect to MainActivity
+                    // Redirect to LoginActivity
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()

@@ -37,7 +37,7 @@ class Donate2AddInfoActivity : AppCompatActivity() {
 
         val amount = intent.getStringExtra("amount").toString()
 
-
+        //setting the values to the page
         binding.DinfoPaymentAmount.text = "Rs. $amount"
         binding.DinfoPaymentTotal.text = "Rs. $amount"
         binding.DinfoName.setText(name2)
@@ -63,24 +63,27 @@ class Donate2AddInfoActivity : AppCompatActivity() {
 
     private fun insert() {
 
-
-
         val name = binding.DinfoName.text.toString()
         val email = binding.DinfoEmail.text.toString()
         val comment = binding.DinfoComment.text.toString()
+
+        //getting the amount from the previous page
         val amount = intent.getStringExtra("amount").toString()
         val today = SimpleDateFormat(
             "yyyy-MM-dd",
             Locale.getDefault()
         ).format(Date()) // Get today's date in the format "yyyy-MM-dd"
 
+        //getting the type from the previous page
         val type = intent.getStringExtra("type").toString()
 
+        //passing the data to the Model
         val fund = FundModel(name, email, comment, amount, today, type)
 
-
+        //generating random id
         val id = UUID.randomUUID().toString()
 
+        //adding the data to the database
         database.getReference("funds").child(id).setValue(fund)
             .addOnSuccessListener {
                 Toast.makeText(this, "Donation successfully added", Toast.LENGTH_SHORT).show()

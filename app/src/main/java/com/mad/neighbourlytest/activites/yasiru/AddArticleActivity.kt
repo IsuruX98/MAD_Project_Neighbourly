@@ -1,19 +1,14 @@
 package com.mad.neighbourlytest.activites.yasiru
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.databinding.ActivityAddArticleBinding
-import com.mad.neighbourlytest.models.yasiru.ArticleModel
+import com.mad.neighbourlytest.models.ArticleModel
 
 import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.activites.isuru.HomeActivity
-import com.mad.neighbourlytest.activites.isuru.Menu
-import com.mad.neighbourlytest.activites.isuru.Menu2
 
 class AddArticleActivity : AppCompatActivity() {
 

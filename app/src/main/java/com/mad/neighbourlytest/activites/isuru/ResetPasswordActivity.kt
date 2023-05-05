@@ -22,6 +22,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         binding.resetPwBtn.setOnClickListener {
             val email = binding.resetEmail.text.toString().trim()
 
+            //validation
             if (email.isEmpty() || email == " ") {
                 Toast.makeText(this, "Email is required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -31,6 +32,7 @@ class ResetPasswordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             else{
+                //reset password process
                 auth.sendPasswordResetEmail(email).addOnCompleteListener(this){ reset->
                     if (reset.isSuccessful){
                         Toast.makeText(this, "Check your email for password reset", Toast.LENGTH_SHORT).show()

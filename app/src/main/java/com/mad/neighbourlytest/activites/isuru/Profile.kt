@@ -31,6 +31,7 @@ class Profile : AppCompatActivity() {
         val id2 = sharedPreferences.getString("id", "").toString()
         val type2 = sharedPreferences.getString("type", "").toString()
 
+        //setting the values to the layout
         binding.pdContactNo.setText(mobile2)
         binding.pdEmail.setText(email2)
         binding.pdNic.setText(id2)
@@ -40,6 +41,7 @@ class Profile : AppCompatActivity() {
         binding.editBtn.setOnClickListener {
             startActivity(Intent(this, EditProfile::class.java))
         }
+        //logout process
         binding.btnLogout.setOnClickListener {
             val sweetAlertDialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("Are you sure you want to log out?")

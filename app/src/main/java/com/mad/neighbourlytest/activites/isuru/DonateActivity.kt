@@ -18,6 +18,7 @@ class DonateActivity : AppCompatActivity() {
 
         binding.DonateAmount.isEnabled = false
 
+        //setting the values to the input filed
         binding.Rs10.setOnClickListener {
             binding.DonateAmount.setText("10")
         }
@@ -40,6 +41,7 @@ class DonateActivity : AppCompatActivity() {
 
         val type = intent.getStringExtra("type").toString()
 
+        //sending the amount and the type of the donation to the next page
         binding.DonateContBtn.setOnClickListener{
             val amount = binding.DonateAmount.text.toString()
             if(amount.isEmpty()){

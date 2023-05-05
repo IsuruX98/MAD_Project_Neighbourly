@@ -19,10 +19,12 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        //user login process
         binding.logBtnMain.setOnClickListener {
             val email = binding.logEmail.text.toString().trim()
             val password = binding.logPwd.text.toString().trim()
 
+            //validations
             if (email.isEmpty() || email == " ") {
                 Toast.makeText(this, "Email is required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -52,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
+        //adding user to the authentication
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { login ->
             if (login.isSuccessful) {
                 val intent = Intent(this, HomeActivity::class.java)

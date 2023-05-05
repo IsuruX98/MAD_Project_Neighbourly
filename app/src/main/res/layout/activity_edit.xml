@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.yasiru.EditArticleActivity">
+    tools:context=".activites.yasiru.EditActivity">
 
     <ImageView
         android:id="@+id/menuHome"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/edit_article"
+        android:text="@string/add_article_text"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,8 +46,8 @@
         style="@style/orangeHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Edit Article"
+        android:layout_marginTop="100dp"
+        android:text="@string/edit_article"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +64,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editArticleSubject"
+        android:id="@+id/subjectArticle"
         style="@style/input"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/subject_text"
         android:inputType="textEmailAddress"
@@ -79,10 +79,10 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/editArticleDescription"
+        android:id="@+id/articleDescription"
         style="@style/input"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="250dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/description_text"
@@ -92,36 +92,20 @@
         android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editArticleSubject"
+        app:layout_constraintTop_toBottomOf="@+id/subjectArticle"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-
-    <EditText
-        android:id="@+id/editArticleId"
-        style="@style/input"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="@string/subject_text"
-        android:inputType="textEmailAddress"
-        android:paddingStart="15dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
 
     <Button
-        android:id="@+id/editArticleUpdateBtn"
+        android:id="@+id/postArticleBtn"
         style="@style/btnOrangeMain"
-        android:layout_width="140dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="@string/update_text"
+        android:layout_marginTop="50dp"
+        android:text="@string/update"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editArticleDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/articleDescription" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

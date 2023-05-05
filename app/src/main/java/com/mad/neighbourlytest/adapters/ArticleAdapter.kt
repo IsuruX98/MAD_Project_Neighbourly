@@ -28,11 +28,13 @@ class ArticleAdapter (private val articles : ArrayList<ArticleModel>) : Recycler
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentArticle = articles[position]
+        holder.id.text = currentArticle.articleId
         holder.subject.text = currentArticle.subject
         holder.description.text = currentArticle.description
     }
 
     class ViewHolder(itemView: View, clickListner: OnItemClickListner) : RecyclerView.ViewHolder(itemView) {
+        val id : TextView = itemView.findViewById(R.id.articleId)
         val subject : TextView = itemView.findViewById(R.id.articleViewSubject)
         val description : TextView = itemView.findViewById(R.id.viewArticleDescription2)
 

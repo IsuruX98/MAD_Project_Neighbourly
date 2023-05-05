@@ -94,6 +94,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+                <TextView
+                    android:id="@+id/articleId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="5dp"
+                    android:justificationMode="inter_word"
+                    android:paddingHorizontal="40dp"
+                    android:text=""
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 
             </LinearLayout>
 

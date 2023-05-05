@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/lightWhite"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="130dp"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/article1" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/articleViewSubject"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/poppins_regular"
+        android:paddingLeft="150dp"
+        android:paddingTop="15dp"
+        android:paddingRight="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewArticleDescription2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_regular"/>
+    <TextView
+        android:id="@+id/articleId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:fontFamily="@font/poppins_regular"/>
+
+
+
+
+
+</androidx.cardview.widget.CardView>

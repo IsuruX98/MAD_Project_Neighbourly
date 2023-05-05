@@ -1,11 +1,13 @@
 package com.mad.neighbourlytest.activites.ishara
 
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
@@ -24,6 +26,8 @@ class ItemDonationActivity : AppCompatActivity() {
     private lateinit var contactNameDonation : EditText
     private lateinit var contactNumberDonation : EditText
     private lateinit var addBtn : Button
+    private lateinit var homeBtn : ImageView
+    private lateinit var menuBtn : ImageView
 
     //database references
     private lateinit var dataBase : DatabaseReference
@@ -38,6 +42,10 @@ class ItemDonationActivity : AppCompatActivity() {
         contactNameDonation = findViewById(R.id.DBulkContactPersonName)
         contactNumberDonation = findViewById(R.id.DBulkContactPersonMobile)
         addBtn = findViewById(R.id.addDBulkBtn)
+        homeBtn = findViewById(R.id.menuHome2)
+        menuBtn = findViewById(R.id.menuHome)
+
+
 
         dataBase = FirebaseDatabase.getInstance().getReference("Donation Items")
 
@@ -46,19 +54,19 @@ class ItemDonationActivity : AppCompatActivity() {
             saveDonation()
         }
 
-//        binding.menuHome.setOnClickListener {
-//            //making a sharedPreference to access in the app
-//            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-//            val type2 = sharedPreferences.getString("type", "").toString()
-//            if(type2=="Donor"){
-//                startActivity(Intent(this, Menu2::class.java))
-//            }else{
-//                startActivity(Intent(this, Menu::class.java))
-//            }
-//        }
-//        binding.menuHome2.setOnClickListener {
-//            startActivity(Intent(this, HomeActivity::class.java))
-//        }
+        menuBtn.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, Menu::class.java))
+            }
+        }
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
 
     }
@@ -109,9 +117,9 @@ class ItemDonationActivity : AppCompatActivity() {
         }
 
 
+
         //create donation id using database push method
            val donationID = dataBase.push().key!!
-
            //connect model
            val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum)
 

@@ -224,4 +224,8 @@ Join us in our mission to support low-income families. Your contributions can ma
     <string name="save">Save</string>
     <string name="delete_account">Delete Account</string>
     <string name="rs_0">Rs.0</string>
+    <string name="donationID">Donation ID</string>
+    <string name="viewArticle">View</string>
+    <string name="emptyList">No Items to Show</string>
+    <string name="dispatchedItems">Dispatched Items</string>
 </resources>

@@ -61,11 +61,13 @@ class AddArticleActivity : AppCompatActivity() {
 
         db = FirebaseDatabase.getInstance().getReference("articles")
 
-        val article = ArticleModel(subject, description)
-        val databaseReference = FirebaseDatabase.getInstance().reference
-        val id = databaseReference.push().key
 
-        db.child(id.toString()).setValue(article).addOnSuccessListener {
+
+        val databaseReference = FirebaseDatabase.getInstance().reference
+        val id = databaseReference.push().key!!
+        val article = ArticleModel(id, subject, description)
+
+        db.child(id).setValue(article).addOnSuccessListener {
             binding.subjectArticle.text.clear()
             binding.articleDescription.text.clear()
 

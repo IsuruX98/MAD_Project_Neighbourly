@@ -32,6 +32,28 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/poppins_bold"
+                    android:text="@string/donationID"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+
+                    android:id="@+id/DonationID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:visibility="gone"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="@string/type_of_donation3"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
@@ -128,13 +150,35 @@
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Item Dispatched :"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+
+                    android:id="@+id/itemDispatched"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
                 <Button
                     android:id="@+id/dispatchedBtnDonation"
                     style="@style/btnOrangeMain"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:text="@string/dispatched" />
+                    android:text="@string/dispatched"
+                    android:visibility="visible"/>
 
                 <Button
                     android:id="@+id/deleteBtn"
@@ -142,7 +186,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
-                    android:text="@string/delete" />
+                    android:text="@string/delete"
+                    android:visibility="visible"/>
             </LinearLayout>
 
 

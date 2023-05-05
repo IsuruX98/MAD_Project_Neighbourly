@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
+        <activity
+            android:name=".activites.ishara.ItemDispatchedFetch"
+            android:exported="false" />
+        <activity
+            android:name=".activites.yasiru.ActivityOneArticle"
+            android:exported="false" />
         <activity
             android:name=".activites.ishara.ItemDonationListOne"
             android:exported="false" />
@@ -79,6 +83,9 @@
         <activity
             android:name=".activites.yasiru.Articles"
             android:exported="false" />
+        <activity android:name=".activites.dinidu.FamilyListFetch"
+            android:exported="false"/>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -110,7 +117,7 @@
             android:exported="false" />
         <activity
             android:name=".activites.isuru.HomeActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -161,8 +168,6 @@
         <activity
             android:name=".activites.isuru.MainActivity"
             android:exported="true">
-
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -26,12 +26,12 @@ class FundOverview : AppCompatActivity() {
 
         //making a sharedPreference to access in the app
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-
-        val name2 = sharedPreferences.getString("name", "").toString()
         val email2 = sharedPreferences.getString("email", "").toString()
 
         val database = FirebaseDatabase.getInstance()
         val mainFundRef = database.getReference("funds")
+
+        //calculate the total donations that made by all the users
 
         mainFundRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -40,15 +40,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum in the `totalAmount` variable
+                // update the TextView
                 binding.totalFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made by the logged in user
 
         val query = mainFundRef.orderByChild("email").equalTo(email2)
 
@@ -59,15 +61,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified username in the `totalAmount` variable
+                // update the TextView
                 binding.yourDonations.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made by today date
 
         val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) // Get today's date in the format "yyyy-MM-dd"
 
@@ -80,15 +84,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for today's date in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for today's date in the `totalAmount` variable
+                // update the TextView
                 binding.todayDonations.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made to the child house fund
 
         val query3 = mainFundRef.orderByChild("type").equalTo("childHouse")
 
@@ -99,15 +105,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified type in the `totalAmount` variable
+                // update the TextView
                 binding.childFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made to the elders fund
 
         val query4 = mainFundRef.orderByChild("type").equalTo("elders")
 
@@ -118,15 +126,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified type in the `totalAmount` variable
+                // update the TextView
                 binding.eldersFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made to the low income family fund
 
         val query5 = mainFundRef.orderByChild("type").equalTo("lowIncomeFamily")
 
@@ -137,15 +147,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified type in the `totalAmount` variable
+                // update the TextView
                 binding.familyFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made to the low facility school fund
 
         val query6 = mainFundRef.orderByChild("type").equalTo("lowFacilitySchool")
 
@@ -156,15 +168,17 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified type in the `totalAmount` variable
+                // update the TextView
                 binding.schoolFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
+
+        //calculate the total donations that made to the main fund
 
         val query7 = mainFundRef.orderByChild("type").equalTo("main")
 
@@ -175,13 +189,13 @@ class FundOverview : AppCompatActivity() {
                     val amount = childSnapshot.child("amount").getValue(String::class.java)?.toInt() ?: 0
                     totalAmount += amount
                 }
-                // Now you have the total amount sum for the specified username in the `totalAmount` variable
-                // Do whatever you want with it, e.g. update a TextView
+                // total amount sum for the specified type in the `totalAmount` variable
+                // update the TextView
                 binding.mainFund.text = "Rs. $totalAmount"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                Log.e("Firebase", "Error reading : ${error.message}")
             }
         })
 

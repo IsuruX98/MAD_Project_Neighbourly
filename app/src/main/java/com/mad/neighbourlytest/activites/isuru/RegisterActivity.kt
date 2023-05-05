@@ -31,6 +31,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.regPassword.text.toString().trim();
             val cpassword = binding.regPassword2.text.toString().trim();
 
+            //validations
             if (name.isEmpty() || name == " ") {
                 Toast.makeText(this, "User name required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -85,6 +86,7 @@ class RegisterActivity : AppCompatActivity() {
             "id" to id,
             "type" to type
         )
+        //adding the user data to the database
         val Users = db.collection("USERS")
         val query = Users.whereEqualTo("email", email).get().addOnSuccessListener { tasks ->
             if (tasks.isEmpty) {

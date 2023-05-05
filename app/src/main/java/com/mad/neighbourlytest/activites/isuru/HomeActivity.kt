@@ -33,12 +33,14 @@ class HomeActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
 
+        //checking the user is logged in or not
         if (currentUser == null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }else {
 
+            //creating the shared preference to access the data of the user in the app
             val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
 
@@ -54,6 +56,7 @@ class HomeActivity : AppCompatActivity() {
                     var mobile = task.get("mobile").toString()
                     var type = task.get("type").toString()
 
+                    //put data into the shared preference
                     editor.putString("name", name)
                     editor.putString("email", email)
                     editor.putString("mobile", mobile)
@@ -62,10 +65,6 @@ class HomeActivity : AppCompatActivity() {
                     editor.apply()
 
                     val name2 = sharedPreferences.getString("name", "").toString()
-                    val email2 = sharedPreferences.getString("email", "").toString()
-                    val mobile2 = sharedPreferences.getString("mobile", "").toString()
-                    val id2 = sharedPreferences.getString("id", "").toString()
-                    val type2 = sharedPreferences.getString("type", "").toString()
 
                     binding.menuUserName.text = name2
 
@@ -126,7 +125,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                    Log.e("Firebase", "Error reading : ${error.message}")
                 }
             })
 
@@ -147,7 +146,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                    Log.e("Firebase", "Error reading : ${error.message}")
                 }
             })
 
@@ -170,7 +169,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("Firebase", "Error reading mainFund: ${error.message}")
+                    Log.e("Firebase", "Error reading : ${error.message}")
                 }
             })
 

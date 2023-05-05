@@ -44,6 +44,12 @@ class AddArticleActivity : AppCompatActivity() {
         val subject = binding.subjectArticle.text.toString()
         val description = binding.articleDescription.text.toString()
 
+        //making a sharedPreference to access in the app
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        val name2 = sharedPreferences.getString("name", "").toString()
+        val email2 = sharedPreferences.getString("email", "").toString()
+
         if (subject.isEmpty()) {
             binding.subjectArticle.error = "Subject is required"
             return
@@ -60,7 +66,7 @@ class AddArticleActivity : AppCompatActivity() {
 
         val databaseReference = FirebaseDatabase.getInstance().reference
         val id = databaseReference.push().key!!
-        val article = ArticleModel(id, subject, description)
+        val article = ArticleModel(id,email2, subject, description)
 
         db.child(id).setValue(article).addOnSuccessListener {
             binding.subjectArticle.text.clear()

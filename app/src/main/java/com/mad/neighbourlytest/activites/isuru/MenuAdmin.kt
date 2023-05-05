@@ -65,5 +65,9 @@ class MenuAdmin : AppCompatActivity() {
         binding.menuHome2.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
+        binding.viewContactUs.setOnClickListener {
+            //startActivity(Intent(this, HomeActivity::class.java))
+        }
+
     }
 }

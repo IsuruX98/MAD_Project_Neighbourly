@@ -3,7 +3,6 @@ package com.mad.neighbourlytest.activites.yasiru
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.security.identity.AccessControlProfileId
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.models.yasiru.ArticleModel
+import com.mad.neighbourlytest.models.ArticleModel
 
 class Article : AppCompatActivity() {
 
@@ -73,8 +72,6 @@ class Article : AppCompatActivity() {
         IDs.setText(intent.getStringExtra("Id").toString())
         subjects.setText(intent.getStringExtra("subject").toString())
         descriptions.setText(intent.getStringExtra("description").toString())
-
-        mDialog.setTitle("Updating $etsubject")
 
         val alertDialog = mDialog.create()
         alertDialog.show()

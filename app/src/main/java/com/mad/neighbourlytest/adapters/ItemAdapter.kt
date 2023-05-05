@@ -44,9 +44,12 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
 
         if(currentItem.dispatched){
             holder.itemDispatched.text = "Item Dispatched"
+            holder.dispatchButton.visibility = View.GONE
+
         }else{
             holder.itemDispatched.text = "Item Not Yet Dispatched"
         }
+
 
 
     }
@@ -63,8 +66,8 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         val contactNameDonation : TextView = itemView.findViewById(R.id.inputContactName)
         val contactNumDonation : TextView = itemView.findViewById(R.id.inputContactNum)
         val itemDispatched : TextView = itemView.findViewById(R.id.itemDispatched)
-        private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
-        private val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
+         val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
+        val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
 
 
         private fun deleteItem(id: String){

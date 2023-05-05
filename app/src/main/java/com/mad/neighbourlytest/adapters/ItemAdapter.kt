@@ -66,7 +66,7 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         val contactNameDonation : TextView = itemView.findViewById(R.id.inputContactName)
         val contactNumDonation : TextView = itemView.findViewById(R.id.inputContactNum)
         val itemDispatched : TextView = itemView.findViewById(R.id.itemDispatched)
-         val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
+         private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
         val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
 
 

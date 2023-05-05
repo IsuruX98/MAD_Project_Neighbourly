@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Neighbourlytest"
         tools:targetApi="31">
         <activity
+            android:name=".activites.isuru.MenuAdmin"
+            android:exported="false" />
+        <activity
             android:name=".activites.ishara.ItemDispatchedFetch"
             android:exported="false" />
         <activity
@@ -83,9 +86,9 @@
         <activity
             android:name=".activites.yasiru.Articles"
             android:exported="false" />
-        <activity android:name=".activites.dinidu.FamilyListFetch"
-            android:exported="false"/>
-
+        <activity
+            android:name=".activites.dinidu.FamilyListFetch"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

@@ -7,7 +7,7 @@
     tools:context=".activites.isuru.FundOverview">
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/adminText"
         style="@style/normalTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,9 +50,9 @@
         android:layout_height="wrap_content"
         android:text="@string/rs_0"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView50"
-        app:layout_constraintStart_toStartOf="@+id/textView50"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        app:layout_constraintEnd_toEndOf="@+id/adminText"
+        app:layout_constraintStart_toStartOf="@+id/adminText"
+        app:layout_constraintTop_toBottomOf="@+id/adminText" />
 
     <TextView
         android:id="@+id/todayDonations"

@@ -39,6 +39,50 @@
                 >
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewContactUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="@color/textInputColor"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="5dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="20dp">
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:background="@color/orangeMainColor" />
+
+                        <ImageView
+
+                            android:layout_width="39dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/baseline_message_24" />
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190dp"
+                        android:layout_marginTop="45dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Messages"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:id="@+id/addArticleBtn"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"

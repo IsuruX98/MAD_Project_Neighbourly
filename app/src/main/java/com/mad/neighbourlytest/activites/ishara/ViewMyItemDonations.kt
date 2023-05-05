@@ -60,6 +60,7 @@ class ViewMyItemDonations : AppCompatActivity() {
                         if (itemData != null) {
                             if(itemData.uMail == mail.toString()){
                                 itemList.add(itemData)
+
                             }else{
                                 showEmpty.visibility = View.VISIBLE
                             }

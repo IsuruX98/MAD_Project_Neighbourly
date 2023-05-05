@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.activites.yasiru
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.isuru.Menu
+import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.adapters.ArticleAdapter
 import com.mad.neighbourlytest.databinding.ActivityMyArticlesBinding
 import com.mad.neighbourlytest.models.yasiru.ArticleModel
@@ -37,29 +40,44 @@ class MyArticles : AppCompatActivity() {
 
         getArticles()
 
+
+
     }
 
-    private fun getArticles(){
+    private fun getArticles() {
         recyclerView.visibility = View.GONE
-
 
         dbRef = FirebaseDatabase.getInstance().getReference("articles")
 
-        dbRef.addValueEventListener(object : ValueEventListener{
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        val name2 = sharedPreferences.getString("name", "").toString()
+        val email2 = sharedPreferences.getString("email", "").toString()
+        val type2 = sharedPreferences.getString("type", "").toString()
+
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 articles.clear()
-                if(snapshot.exists()){
-                    for(articleSnap in snapshot.children){
+                if (snapshot.exists()) {
+                    for (articleSnap in snapshot.children) {
                         val articleData = articleSnap.getValue(ArticleModel::class.java)
-                        articles.add(articleData!!)
+
+                        // Get article data based on the user's email when the user is a volunteer
+                        if (type2 == "Volunteer") {
+                            if (articleData?.email == email2) {
+                                articles.add(articleData!!)
+                            }
+                        } else {
+                            articles.add(articleData!!)
+                        }
                     }
                     val mAdapter = ArticleAdapter(articles)
                     recyclerView.adapter = mAdapter
 
-                    mAdapter.setOnItemClickListner(object : ArticleAdapter.OnItemClickListner{
+                    mAdapter.setOnItemClickListner(object : ArticleAdapter.OnItemClickListner {
                         override fun onItemClick(position: Int) {
                             val intent = Intent(this@MyArticles, Article::class.java)
-                            intent.putExtra("Id",articles[position].articleId)
+                            intent.putExtra("Id", articles[position].articleId)
                             intent.putExtra("description", articles[position].description)
                             intent.putExtra("subject", articles[position].subject)
 
@@ -70,8 +88,8 @@ class MyArticles : AppCompatActivity() {
 
                     recyclerView.visibility = View.VISIBLE
 
-                }else{
-                    Log.d("My-snap","mukuth na")
+                } else {
+                    Log.d("My-snap", "mukuth na")
                 }
             }
 
@@ -81,4 +99,5 @@ class MyArticles : AppCompatActivity() {
 
         })
     }
+
 }

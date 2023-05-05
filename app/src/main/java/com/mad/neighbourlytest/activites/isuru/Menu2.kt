@@ -26,7 +26,7 @@ class Menu2 : AppCompatActivity() {
 
 
         binding.articlesBtn.setOnClickListener {
-            startActivity(Intent(this, Articles::class.java))
+            startActivity(Intent(this, MyArticles::class.java))
         }
         binding.donateBtn.setOnClickListener {
             startActivity(Intent(this, Donate0Activity::class.java))

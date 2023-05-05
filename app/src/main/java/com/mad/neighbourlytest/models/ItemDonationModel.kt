@@ -1,11 +1,34 @@
 package com.mad.neighbourlytest.models
 
-class ItemDonationModel (
-    val donationID : String? = null,
-    val typeDonation : String? = null,
-    val quantityDonation : String? = null,
-    val expDonation : String? = null,
-    val contactName : String? = null,
-    val contactNum : String?= null,
-    val dispatched : Boolean = false,
-)
+
+
+class ItemDonationModel {
+    var donationID : String? = null
+    var typeDonation : String? = null
+    var quantityDonation : String? = null
+    var expDonation : String? = null
+    var contactName : String? = null
+    var contactNum : String?= null
+    var dispatched : Boolean = false
+    var uMail : String? = null
+
+
+    constructor(donationID: String?,typeDonation : String?,quantityDonation : String? ,expDonation : String?,contactName : String?,contactNum : String?,dispatched : Boolean, uMail : String? ){
+        this.donationID = donationID
+        this.quantityDonation = quantityDonation
+        this.typeDonation = typeDonation
+        this.expDonation = expDonation
+        this.contactName = contactName
+        this.contactNum = contactNum
+        this.dispatched = dispatched
+        this.uMail = uMail
+
+    }
+    constructor(){
+
+    }
+
+
+}
+
+

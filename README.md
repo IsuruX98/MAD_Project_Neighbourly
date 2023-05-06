@@ -1,5 +1,5 @@
 # MAD_Project_Neighbourly
 MAD project using Kotlin in Android studio (Neighbourly - App for solution ideas for Economic crisis) for SLIIT 2nd year 2nd semester project
 
-![photo_2023-05-06_13-26-33](https://user-images.githubusercontent.com/104721314/236611387-4dec8bcb-afff-4bff-8e0e-09bdcf96bafd.jpg)
-![photo_2023-05-06_13-26-34](https://user-images.githubusercontent.com/104721314/236611391-a1439b40-163c-4fd0-b967-ffe0e1896bc8.jpg)
+![IMG_3908](https://user-images.githubusercontent.com/104721314/236611447-78683fc1-2ea1-45a6-ac8d-498a3ae55425.JPEG)
+![IMG_3907](https://user-images.githubusercontent.com/104721314/236611450-279b9112-0846-440e-b13f-849d14f101f4.JPEG)

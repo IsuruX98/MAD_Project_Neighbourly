@@ -1,10 +1,8 @@
 package com.mad.neighbourlytest.activites.yasiru
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -12,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
-import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.models.ArticleModel
 
 class Article : AppCompatActivity() {
@@ -37,14 +34,6 @@ class Article : AppCompatActivity() {
         id.text = intent.getStringExtra("id")
         subject.text = intent.getStringExtra("subject")
         description.text = intent.getStringExtra("description")
-
-        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val type2 = sharedPreferences.getString("type", "").toString()
-
-        if(type2=="Donor") {
-            btnEdit.visibility = View.GONE
-            btnDelete.visibility = View.GONE
-        }
 
 
         btnEdit.setOnClickListener {
@@ -109,11 +98,7 @@ class Article : AppCompatActivity() {
         description: String
     ) {
         val dbRef = FirebaseDatabase.getInstance().getReference("articles").child(iD)
-
-        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val email2 = sharedPreferences.getString("email", "").toString()
-
-        val artInfo = ArticleModel(articleId = iD, email = email2, subject = subject, description = description)
+        val artInfo = ArticleModel(iD, subject, description)
         dbRef.setValue(artInfo)
             .addOnSuccessListener {
                 Toast.makeText(applicationContext, "Article updated", Toast.LENGTH_LONG).show()

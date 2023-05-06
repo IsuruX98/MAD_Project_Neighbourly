@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.adapters
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,8 +35,7 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         holder.contactNameDonation.text = currentItem.contactName
         holder.contactNumDonation.text = currentItem.contactNum
         holder.donationID.text = currentItem.donationID
-
-
+        Log.d("Current user",currentItem.typeUser.toString())
         if (currentItem.expDonation != "") {
             holder.expDonation.text = currentItem.expDonation
         } else {
@@ -45,10 +45,16 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         if(currentItem.dispatched){
             holder.itemDispatched.text = "Item Dispatched"
             holder.dispatchButton.visibility = View.GONE
-
         }else{
             holder.itemDispatched.text = "Item Not Yet Dispatched"
         }
+
+        if(currentItem.typeUser == "Donor"){
+            holder.dispatchButton.visibility = View.GONE
+            holder.deleteButton.visibility = View.GONE
+        }
+
+
 
 
 
@@ -66,7 +72,7 @@ class ItemAdapter (private val itemDonateList : ArrayList<ItemDonationModel>) : 
         val contactNameDonation : TextView = itemView.findViewById(R.id.inputContactName)
         val contactNumDonation : TextView = itemView.findViewById(R.id.inputContactNum)
         val itemDispatched : TextView = itemView.findViewById(R.id.itemDispatched)
-         private val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
+        val deleteButton : Button = itemView.findViewById(R.id.deleteBtn)
         val dispatchButton : Button = itemView.findViewById(R.id.dispatchedBtnDonation)
 
 

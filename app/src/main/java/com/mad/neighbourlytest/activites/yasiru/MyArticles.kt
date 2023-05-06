@@ -87,7 +87,7 @@ class MyArticles : AppCompatActivity() {
                     recyclerView.visibility = View.VISIBLE
 
                 } else {
-                    Log.d("My-snap", "mukuth na")
+
                 }
             }
 

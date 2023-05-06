@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.models.ArticleModel
 
 class Article : AppCompatActivity() {
@@ -34,6 +36,11 @@ class Article : AppCompatActivity() {
         id.text = intent.getStringExtra("id")
         subject.text = intent.getStringExtra("subject")
         description.text = intent.getStringExtra("description")
+
+        findViewById<ImageView>(R.id.menuHome2).setOnClickListener{
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
 
         btnEdit.setOnClickListener {
@@ -77,16 +84,28 @@ class Article : AppCompatActivity() {
         alertDialog.show()
 
         btnUpdateData.setOnClickListener {
+            val subjectText = subjects.text.toString()
+            val descriptionText = descriptions.text.toString()
+
+            if (subjectText.isEmpty()) {
+                Toast.makeText(applicationContext, "Subject is required", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            if (descriptionText.isEmpty()) {
+                Toast.makeText(applicationContext, "Description is required", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             updateArticle(
                 ID,
-                subjects.text.toString(),
-                descriptions.text.toString()
-
+                subjectText,
+                descriptionText
             )
 
             //we are setting updated data to our textviews
-            subject.text = subjects.text.toString()
-            description.text = descriptions.text.toString()
+            subject.text = subjectText
+            description.text = descriptionText
 
             alertDialog.dismiss()
         }
@@ -99,6 +118,7 @@ class Article : AppCompatActivity() {
     ) {
         val dbRef = FirebaseDatabase.getInstance().getReference("articles").child(iD)
         val artInfo = ArticleModel(iD, subject, description)
+
         dbRef.setValue(artInfo)
             .addOnSuccessListener {
                 Toast.makeText(applicationContext, "Article updated", Toast.LENGTH_LONG).show()
@@ -119,7 +139,7 @@ class Article : AppCompatActivity() {
         val mTask = dbRef.removeValue()
 
         mTask.addOnSuccessListener {
-            Toast.makeText(this, "Article deleted", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Article Deleted", Toast.LENGTH_LONG).show()
 
             val intent = Intent(this, MyArticles::class.java)
             finish()

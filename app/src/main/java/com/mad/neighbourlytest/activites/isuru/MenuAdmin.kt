@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.activites.dinidu.AddFamilyActivity
 import com.mad.neighbourlytest.activites.dinidu.FamilyListFetch
+import com.mad.neighbourlytest.activites.dinidu.FetchMessage
 import com.mad.neighbourlytest.activites.ishara.Donate0Activity
 import com.mad.neighbourlytest.activites.ishara.DonationCategory
 import com.mad.neighbourlytest.activites.ishara.ItemDispatchedFetch
@@ -66,7 +67,7 @@ class MenuAdmin : AppCompatActivity() {
             startActivity(Intent(this, HomeActivity::class.java))
         }
         binding.viewContactUs.setOnClickListener {
-            //startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, FetchMessage::class.java))
         }
 
     }

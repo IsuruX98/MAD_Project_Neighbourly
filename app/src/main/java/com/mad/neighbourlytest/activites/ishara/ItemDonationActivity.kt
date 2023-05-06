@@ -81,6 +81,9 @@ class ItemDonationActivity : AppCompatActivity() {
         val cNum = contactNumberDonation.text.toString()
         val user = auth.currentUser?.email
 
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val typeUser = sharedPreferences.getString("type", "").toString()
+
         //check null value validation
         if (type.isEmpty()) {
             SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
@@ -124,7 +127,7 @@ class ItemDonationActivity : AppCompatActivity() {
         //create donation id using database push method
            val donationID = dataBase.push().key!!
            //connect model
-           val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum,false,user)
+           val itemDonation = ItemDonationModel(donationID,type,qty,exp,cName,cNum,false,user,typeUser)
 
 
            dataBase.child(donationID).setValue(itemDonation)

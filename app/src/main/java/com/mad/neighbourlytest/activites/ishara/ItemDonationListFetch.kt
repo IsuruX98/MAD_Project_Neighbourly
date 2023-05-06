@@ -1,6 +1,7 @@
 package com.mad.neighbourlytest.activites.ishara
 
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -48,6 +49,9 @@ class ItemDonationListFetch : AppCompatActivity() {
         //wait till data load
         itemRecyclerView.visibility = View.GONE
 
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val typeUser = sharedPreferences.getString("type", "").toString()
+
         database = FirebaseDatabase.getInstance().getReference("Donation Items")
         //listen to changes and provide updates of database
         database.addValueEventListener(object : ValueEventListener{
@@ -61,6 +65,7 @@ class ItemDonationListFetch : AppCompatActivity() {
                         val itemData = items.getValue(ItemDonationModel::class.java)
 
                         if (itemData != null) {
+                            itemData.typeUser = typeUser
                             //check status in dispatched field
                             if(!itemData.dispatched){
                                 itemList.add(itemData)

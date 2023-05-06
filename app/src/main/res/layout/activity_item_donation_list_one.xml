@@ -50,6 +50,18 @@
                     android:textSize="18sp" />
 
                 <TextView
+
+                    android:id="@+id/typeUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:visibility="gone"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

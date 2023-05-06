@@ -3,6 +3,7 @@ package com.mad.neighbourlytest.models
 
 
 class ItemDonationModel {
+
     var donationID : String? = null
     var typeDonation : String? = null
     var quantityDonation : String? = null
@@ -11,9 +12,10 @@ class ItemDonationModel {
     var contactNum : String?= null
     var dispatched : Boolean = false
     var uMail : String? = null
+    var typeUser : String? = null
 
 
-    constructor(donationID: String?,typeDonation : String?,quantityDonation : String? ,expDonation : String?,contactName : String?,contactNum : String?,dispatched : Boolean, uMail : String? ){
+    constructor(donationID: String?,typeDonation : String?,quantityDonation : String? ,expDonation : String?,contactName : String?,contactNum : String?,dispatched : Boolean, uMail : String?,typeUser: String? ){
         this.donationID = donationID
         this.quantityDonation = quantityDonation
         this.typeDonation = typeDonation
@@ -22,6 +24,7 @@ class ItemDonationModel {
         this.contactNum = contactNum
         this.dispatched = dispatched
         this.uMail = uMail
+        this.typeUser = typeUser
 
     }
     constructor(){

@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.activites.ishara
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -46,6 +47,9 @@ class ItemDispatchedFetch: AppCompatActivity() {
     private fun getDonationItemData(){
         itemRecyclerView.visibility = View.GONE
 
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val typeUser = sharedPreferences.getString("type", "").toString()
+
         database = FirebaseDatabase.getInstance().getReference("Donation Items")
 
         database.addValueEventListener(object : ValueEventListener{
@@ -56,6 +60,7 @@ class ItemDispatchedFetch: AppCompatActivity() {
 
                         val itemData = items.getValue(ItemDonationModel::class.java)
                         if (itemData != null) {
+                            itemData.typeUser = typeUser
                             if(itemData.dispatched){
                                 itemList.add(itemData)
                             }

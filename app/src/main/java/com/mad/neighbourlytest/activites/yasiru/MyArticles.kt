@@ -38,8 +38,6 @@ class MyArticles : AppCompatActivity() {
 
         getArticles()
 
-
-
     }
 
     private fun getArticles() {
@@ -49,7 +47,7 @@ class MyArticles : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
-        val name2 = sharedPreferences.getString("name", "").toString()
+
         val email2 = sharedPreferences.getString("email", "").toString()
         val type2 = sharedPreferences.getString("type", "").toString()
 
@@ -65,7 +63,8 @@ class MyArticles : AppCompatActivity() {
                             if (articleData?.email == email2) {
                                 articles.add(articleData!!)
                             }
-                        } else {
+                        }
+                        else {
                             articles.add(articleData!!)
                         }
                     }

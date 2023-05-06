@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -14,6 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.activites.isuru.Menu
 import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.adapters.ArticleAdapter
@@ -25,6 +28,7 @@ class MyArticles : AppCompatActivity() {
     private lateinit var recyclerView : RecyclerView
     private lateinit var articles : ArrayList<ArticleModel>
     private lateinit var dbRef : DatabaseReference
+    private lateinit var noArticle : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +37,18 @@ class MyArticles : AppCompatActivity() {
         recyclerView = findViewById(R.id.itemRecycl)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
+        noArticle = findViewById(R.id.noArticles)
 
         articles = arrayListOf<ArticleModel>()
 
         getArticles()
+
+        var home = findViewById<ImageView>(R.id.menuHome2)
+
+        home.setOnClickListener{
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -62,11 +74,22 @@ class MyArticles : AppCompatActivity() {
                         if (type2 == "Volunteer") {
                             if (articleData?.email == email2) {
                                 articles.add(articleData!!)
+                            }else{
+                                noArticle.visibility = View.VISIBLE
                             }
+
+
                         }
                         else {
                             articles.add(articleData!!)
                         }
+
+                        if(type2 == "Admin" || type2 == "Donor"){
+                            val textView37 = findViewById<TextView>(R.id.textView37)
+                            textView37.text = "Articles"
+
+                        }
+
                     }
                     val mAdapter = ArticleAdapter(articles)
                     recyclerView.adapter = mAdapter
@@ -86,7 +109,7 @@ class MyArticles : AppCompatActivity() {
                     recyclerView.visibility = View.VISIBLE
 
                 } else {
-
+                    
                 }
             }
 

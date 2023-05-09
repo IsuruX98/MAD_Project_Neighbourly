@@ -1,12 +1,12 @@
-package com.mad.neighbourlytest.activites.isuru
+package com.mad.neighbourlytest.activites.yasiru
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mad.neighbourlytest.R
 
-class UserList : AppCompatActivity() {
+class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_list)
+        setContentView(R.layout.activity_edit)
     }
 }

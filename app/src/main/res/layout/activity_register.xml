@@ -51,7 +51,7 @@
                 android:layout_marginTop="30dp"
                 android:ems="10"
                 android:hint="@string/name"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:paddingStart="15dp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/mobile_text"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:paddingStart="15dp"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 

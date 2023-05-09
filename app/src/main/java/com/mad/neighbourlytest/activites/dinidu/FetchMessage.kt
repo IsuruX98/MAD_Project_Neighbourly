@@ -1,8 +1,11 @@
 package com.mad.neighbourlytest.activites.dinidu
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
@@ -11,6 +14,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
+import com.mad.neighbourlytest.activites.isuru.Menu
+import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.adapters.messageAdapter
 import com.mad.neighbourlytest.models.contactUs
 
@@ -20,6 +26,8 @@ class FetchMessage : AppCompatActivity() {
     private lateinit var messageRecyclerView: RecyclerView
     private lateinit var messageList:ArrayList<contactUs>
     private lateinit var dbRef: DatabaseReference
+    private lateinit var homeBtn : ImageView
+    private lateinit var menuBtn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +38,25 @@ class FetchMessage : AppCompatActivity() {
         messageRecyclerView.layoutManager= LinearLayoutManager(this)
         messageRecyclerView.setHasFixedSize(true)
 
+        homeBtn = findViewById(R.id.menuHome2)
+        menuBtn = findViewById(R.id.menuHome)
+
         // Initialize the list to store the fetched messages
         messageList = arrayListOf<contactUs>()
+
+        menuBtn.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, Menu::class.java))
+            }
+        }
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
         // Call the method to get the message list from Firebase
         getMessageList()

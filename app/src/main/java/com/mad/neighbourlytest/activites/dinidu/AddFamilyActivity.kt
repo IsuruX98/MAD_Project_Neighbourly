@@ -1,13 +1,19 @@
 package com.mad.neighbourlytest.activites.dinidu
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.mad.neighbourlytest.R
 import com.google.firebase.database.FirebaseDatabase
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
+import com.mad.neighbourlytest.activites.isuru.Menu
+import com.mad.neighbourlytest.activites.isuru.Menu2
 import com.mad.neighbourlytest.models.FamilyModel
 
 class AddFamilyActivity : AppCompatActivity() {
@@ -19,6 +25,8 @@ class AddFamilyActivity : AppCompatActivity() {
     private lateinit var contactNo:EditText
     private lateinit var famJob:EditText
     private lateinit var add:Button
+    private lateinit var homeBtn : ImageView
+    private lateinit var menuBtn : ImageView
 
     // Declare a Firebase database reference
     private lateinit var dbRef: DatabaseReference
@@ -34,6 +42,8 @@ class AddFamilyActivity : AppCompatActivity() {
         contactNo =findViewById(R.id.famContact)
         famJob =findViewById(R.id.famJob)
         add= findViewById(R.id.addFamBtn)
+        homeBtn = findViewById(R.id.menuHome2)
+        menuBtn = findViewById(R.id.menuHome)
 
         // Initialize the Firebase database reference
         dbRef = FirebaseDatabase.getInstance().getReference("Family")
@@ -42,6 +52,20 @@ class AddFamilyActivity : AppCompatActivity() {
         add.setOnClickListener{
             // Call the saveFamily() method
             saveFamily()
+        }
+
+        menuBtn.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, Menu::class.java))
+            }
+        }
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 

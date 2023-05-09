@@ -23,7 +23,7 @@ class EditMessageActivity : AppCompatActivity() {
         // set text to respective views
         val userEmailTextView: TextView = findViewById(R.id.messageUEmail)
         val messageSubjectTextView: TextView = findViewById(R.id.messageSubject)
-        val messageBody: TextView = findViewById(R.id.messageBody)
+        val messageBody: TextView = findViewById(R.id.textMessage)
 
         userEmailTextView.text = UserEmail
         messageSubjectTextView.text = MessageSubject

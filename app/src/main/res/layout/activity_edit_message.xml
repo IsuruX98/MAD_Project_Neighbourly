@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="MessageDetails"
+        android:text="Message Details"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -148,5 +148,16 @@
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="272dp"
+        android:layout_height="176dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/messageBody"
+        app:layout_constraintEnd_toEndOf="@+id/messageBody"
+        app:layout_constraintStart_toStartOf="@+id/messageBody"
+        app:layout_constraintTop_toTopOf="@+id/messageBody" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.mad.neighbourlytest.activites.dinidu
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +8,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.Menu
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.mad.neighbourlytest.R
+import com.mad.neighbourlytest.activites.isuru.HomeActivity
+import com.mad.neighbourlytest.activites.isuru.Menu2
 
 class EditFamilyActivity : AppCompatActivity() {
     private var updatedFamilyName: String? = null
@@ -18,10 +22,15 @@ class EditFamilyActivity : AppCompatActivity() {
     private var updatedAddress: String? = null
     private var updatedConNumber: String? = null
     private var updatedJobTitle: String? = null
+    private lateinit var homeBtn : ImageView
+    private lateinit var menuBtn : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_family)
+
+        homeBtn = findViewById(R.id.menuHome2)
+        menuBtn = findViewById(R.id.menuHome)
 
         var fieldsChanged = false
 
@@ -41,6 +50,7 @@ class EditFamilyActivity : AppCompatActivity() {
         val familyConNumberTextView: TextView = findViewById(R.id.famContact)
         val familyAddressTextView: TextView = findViewById(R.id.famAddress)
         val familyJobTextView: TextView = findViewById(R.id.famJob)
+
 
         // Set the text and disable the TextViews
         familyNameTextView.text = familyName
@@ -62,6 +72,20 @@ class EditFamilyActivity : AppCompatActivity() {
 
         val db = FirebaseDatabase.getInstance()
 
+        menuBtn.setOnClickListener {
+            //making a sharedPreference to access in the app
+            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val type2 = sharedPreferences.getString("type", "").toString()
+            if(type2=="Donor"){
+                startActivity(Intent(this, Menu2::class.java))
+            }else{
+                startActivity(Intent(this, com.mad.neighbourlytest.activites.isuru.Menu::class.java))
+            }
+        }
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
         // Set a click listener for the update button
         bttnUpdate.setOnClickListener {
             // Enable the TextViews
@@ -77,6 +101,9 @@ class EditFamilyActivity : AppCompatActivity() {
             val updatedConNumber = familyConNumberTextView.text.toString()
             val updatedAddress = familyAddressTextView.text.toString()
             val updatedJobTitle = familyJobTextView.text.toString()
+
+
+
 
             //update values in database
 
@@ -187,6 +214,9 @@ class EditFamilyActivity : AppCompatActivity() {
                     }
             }
         }
+
+
+
 
         bttnDelete.setOnClickListener{
 

@@ -35,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
 
         //checking the user is logged in or not
         if (currentUser == null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         } else {

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.mad.neighbourlytest.R
 import com.mad.neighbourlytest.activites.dinidu.AddFamilyActivity
 import com.mad.neighbourlytest.activites.dinidu.FamilyListFetch
@@ -27,12 +28,10 @@ class MenuAdmin : AppCompatActivity() {
         binding = ActivityMenuAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.addArticleBtn.setOnClickListener {
-            startActivity(Intent(this, AddArticleActivity::class.java))
-        }
-        binding.myArticleBtn.setOnClickListener {
-            startActivity(Intent(this, MyArticles::class.java))
-        }
+        binding.addArticleBtn.visibility = View.GONE
+        binding.myArticleBtn.visibility = View.GONE
+
+
         binding.addFamilyBtn.setOnClickListener {
             startActivity(Intent(this, AddFamilyActivity::class.java))
         }
@@ -49,7 +48,7 @@ class MenuAdmin : AppCompatActivity() {
             startActivity(Intent(this, ItemDispatchedFetch::class.java))
         }
         binding.articlesBtn.setOnClickListener {
-            startActivity(Intent(this, Articles::class.java))
+            startActivity(Intent(this, MyArticles::class.java))
         }
         binding.donateBtn.setOnClickListener {
             startActivity(Intent(this, Donate0Activity::class.java))

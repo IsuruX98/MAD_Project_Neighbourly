@@ -13,6 +13,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,12 +29,28 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
+
+                <TextView
+                    android:id="@+id/noArticles"
+                    android:layout_width="347dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="411dp"
+                    android:layout_marginBottom="712dp"
+                    android:text="No Articles to Show"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textAlignment="center"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent" />
+
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/itemRecycl"

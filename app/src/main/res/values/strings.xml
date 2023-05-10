@@ -76,7 +76,7 @@
     <string name="contact_person_name_text">Contact Person Name</string>
     <string name="contact_person_phone_no_text">Contact Person Phone No</string>
     <string name="type_of_donation_text">Type of Donation</string>
-    <string name="quantity_of_donations_text">Quantity of Donations</string>
+    <string name="quantity_of_donations_text">Quantity of Donations (5kg,5,5lbs..)</string>
     <string name="donation_bulk_text">Donation Bulk</string>
     <string name="donate_description">How much would you like to donate? As a\ncontributor to My Blog we make sure your\ndonation goes directly to supporting our\ncause.</string>
     <string name="rs">Rs.</string>

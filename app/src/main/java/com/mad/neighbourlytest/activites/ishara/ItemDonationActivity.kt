@@ -92,13 +92,15 @@ class ItemDonationActivity : AppCompatActivity() {
                 .show()
             return
         }
-        if (qty.isEmpty()) {
+        if (qty.isEmpty() || !qty.matches(Regex(".*\\d+.*"))) {
             SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                 .setTitleText("Error")
-                .setContentText("Quantity of Donation is required")
+                .setContentText("Quantity of Donation is required and must contain at least one number")
                 .show()
             return
         }
+
+
         if (cName.isEmpty()) {
             SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                 .setTitleText("Error")

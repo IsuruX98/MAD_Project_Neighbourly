@@ -3,6 +3,8 @@ package com.mad.neighbourlytest.activites.isuru
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.mad.neighbourlytest.databinding.ActivityLoginBinding
@@ -11,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var loginProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        loginProgressBar = binding.progressBar
 
         //user login process
         binding.logBtnMain.setOnClickListener {
@@ -42,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             } else {
+                binding.progressBar.visibility = View.VISIBLE // show progress bar
                 loginUser(email, password)
             }
         }
@@ -54,8 +59,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
+        // show the progress bar
+        loginProgressBar.visibility = View.VISIBLE
+
         //adding user to the authentication
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { login ->
+            // hide the progress bar
+            loginProgressBar.visibility = View.GONE
+
             if (login.isSuccessful) {
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra("email", email)
@@ -66,4 +77,5 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 }

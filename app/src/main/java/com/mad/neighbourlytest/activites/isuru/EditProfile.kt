@@ -4,16 +4,20 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mad.neighbourlytest.databinding.ActivityEditProfileBinding
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
 class EditProfile : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditProfileBinding
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,13 +35,14 @@ class EditProfile : AppCompatActivity() {
         val id2 = sharedPreferences.getString("id", "").toString()
         val type2 = sharedPreferences.getString("type", "").toString()
 
-        //setting thr values of the layout
+        //setting the values of the layout
         binding.editMobile.setText(mobile2)
         binding.editEmail.setText(email2)
         binding.editNIC.setText(id2)
         binding.editName.setText(name2)
         binding.editType.setText(type2)
 
+        progressBar = binding.progressBar
 
         binding.deleteBtn.setOnClickListener {
             val email = binding.editEmail.text.toString()
@@ -52,16 +57,16 @@ class EditProfile : AppCompatActivity() {
             val type = binding.editType.text.toString()
             val nic = binding.editNIC.text.toString()
 
-            updatedata(name,email,mobile,type,nic)
+            updatedata(name, email, mobile, type, nic)
         }
 
         binding.menuHome.setOnClickListener {
             //making a sharedPreference to access in the app
             val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             val type2 = sharedPreferences.getString("type", "").toString()
-            if(type2=="Donor"){
+            if (type2 == "Donor") {
                 startActivity(Intent(this, Menu2::class.java))
-            }else{
+            } else {
                 startActivity(Intent(this, Menu::class.java))
             }
         }
@@ -70,6 +75,7 @@ class EditProfile : AppCompatActivity() {
         }
 
     }
+
     private fun updatedata(name:String, email:String, mobile:String, type:String, nic:String){
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("USERS").document(email)
@@ -90,47 +96,89 @@ class EditProfile : AppCompatActivity() {
             .setConfirmClickListener { sDialog ->
                 sDialog.dismissWithAnimation()
 
+                // Show progress bar
+                progressBar.visibility = View.VISIBLE
+
                 // Update data in Firestore
-                docRef.update(newData as Map<String, Any>).addOnSuccessListener {
-                    Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this,HomeActivity::class.java)
-                    startActivity(intent)
-                }.addOnFailureListener{
-                    Toast.makeText(this, "Unable to Update", Toast.LENGTH_SHORT).show()
+                docRef.update(newData as Map<String, Any>).addOnCompleteListener { task ->
+                    // Hide progress bar
+                    progressBar.visibility = View.GONE
+
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Data updated successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        // Update values in shared preferences
+                        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("name", name)
+                        editor.putString("email", email)
+                        editor.putString("mobile", mobile)
+                        editor.putString("type", type)
+                        editor.putString("id", nic)
+                        editor.apply()
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Error updating data",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
-            .setCancelText("Cancel")
-            .setCancelClickListener { sDialog ->
-                sDialog.dismissWithAnimation()
-            }
+            .setCancelButton("Cancel") { sDialog -> sDialog.dismissWithAnimation() }
             .show()
     }
+
     private fun deletedata(email:String){
         val db = FirebaseFirestore.getInstance()
-        val collectionRef = db.collection("USERS")
-        val documentRef = collectionRef.document(email)
+        val docRef = db.collection("USERS").document(email)
 
         // Show confirmation dialog before deleting data
         SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-            .setTitleText("Delete")
-            .setContentText("Are you sure you want to delete your account?")
-            .setConfirmText("Yes, delete it")
+            .setTitleText("Confirm Delete")
+            .setContentText("Are you sure you want to delete this data?")
+            .setConfirmText("Delete")
             .setConfirmClickListener { sDialog ->
                 sDialog.dismissWithAnimation()
-                documentRef.delete().addOnSuccessListener {
-                    Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
-                    // Log out user
-                    FirebaseAuth.getInstance().signOut()
-                    // Redirect to LoginActivity
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }.addOnFailureListener{
-                    Toast.makeText(this, "Unable to Delete", Toast.LENGTH_SHORT).show()
+
+                // Show progress bar
+                progressBar.visibility = View.VISIBLE
+
+                // Delete data from Firestore
+                docRef.delete().addOnCompleteListener { task ->
+                    // Hide progress bar
+                    progressBar.visibility = View.GONE
+
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Data deleted successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        // Clear shared preferences
+                        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.clear()
+                        editor.apply()
+
+                        // Go back to login activity
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Error deleting data",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
-            .setCancelText("No")
-            .setCancelClickListener { sDialog -> sDialog.dismissWithAnimation() }
+            .setCancelButton("Cancel") { sDialog -> sDialog.dismissWithAnimation() }
             .show()
     }
 

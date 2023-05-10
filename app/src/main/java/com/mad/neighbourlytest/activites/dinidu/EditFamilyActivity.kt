@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.Menu
 import android.widget.Button
@@ -71,6 +72,7 @@ class EditFamilyActivity : AppCompatActivity() {
         val bttnDelete: Button = findViewById(R.id.deleteFamBtn2)
 
         val db = FirebaseDatabase.getInstance()
+
 
         menuBtn.setOnClickListener {
             //making a sharedPreference to access in the app
@@ -188,30 +190,63 @@ class EditFamilyActivity : AppCompatActivity() {
             })
 
             if (fieldsChanged) {
+                val phonePattern = Regex("^[+]?[0-9]{10,13}\$")
+                val maxMembers = 10
+                val specialCharPattern = Regex("[^A-Za-z ]")
+                val specialCharPattern2 = Regex("[^A-Za-z0-9 (,/)]")
 
-                val recordRef = db.getReference("Family").child(familyID.toString())
+                if (TextUtils.isEmpty(updatedFamilyName) || TextUtils.isEmpty(updatedNoOfMembers)
+                    || TextUtils.isEmpty(updatedConNumber) || TextUtils.isEmpty(updatedAddress)
+                    || TextUtils.isEmpty(updatedJobTitle)) {
+                    Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                }
 
-                val updates = hashMapOf<String, Any>(
-                    "familyName" to updatedFamilyName,
-                    "noMembers" to updatedNoOfMembers,
-                    "familyConNumber" to updatedConNumber,
-                    "familyAddress" to updatedAddress,
-                    "familyJob" to updatedJobTitle
-                )
 
-                // Update the record
-                recordRef.updateChildren(updates)
-                    .addOnSuccessListener {
-                        Toast.makeText(this,"Data Updated Successfully", Toast.LENGTH_LONG).show()
-                        familyNameTextView.isEnabled = false
-                        familyMembersTextView.isEnabled = false
-                        familyConNumberTextView.isEnabled = false
-                        familyAddressTextView.isEnabled = false
-                        familyJobTextView.isEnabled = false
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this,"Failed to update data", Toast.LENGTH_LONG).show()
-                    }
+                else if (!phonePattern.matches(updatedConNumber)) {
+                    familyConNumberTextView.error = "Please enter a valid phone number."
+                }
+
+                else if (updatedNoOfMembers.toInt() > maxMembers) {
+                    familyMembersTextView.error = "Maximum $maxMembers family members allowed."
+
+                }
+                else if (specialCharPattern2.containsMatchIn(updatedAddress)) {
+                    Toast.makeText(this, "Please remove special characters ", Toast.LENGTH_SHORT).show()
+
+                }
+
+               else  if (specialCharPattern.containsMatchIn(updatedFamilyName ) || specialCharPattern.containsMatchIn(updatedJobTitle)) {
+                    Toast.makeText(this, "Please remove any special characters or digits from the input fields.", Toast.LENGTH_SHORT).show()
+
+                }
+
+                else{
+                    val recordRef = db.getReference("Family").child(familyID.toString())
+
+                    val updates = hashMapOf<String, Any>(
+                        "familyName" to updatedFamilyName,
+                        "noMembers" to updatedNoOfMembers,
+                        "familyConNumber" to updatedConNumber,
+                        "familyAddress" to updatedAddress,
+                        "familyJob" to updatedJobTitle
+                    )
+
+                    // Update the record
+                    recordRef.updateChildren(updates)
+                        .addOnSuccessListener {
+                            Toast.makeText(this,"Data Updated Successfully", Toast.LENGTH_LONG).show()
+                            familyNameTextView.isEnabled = false
+                            familyMembersTextView.isEnabled = false
+                            familyConNumberTextView.isEnabled = false
+                            familyAddressTextView.isEnabled = false
+                            familyJobTextView.isEnabled = false
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this,"Failed to update data", Toast.LENGTH_LONG).show()
+                        }
+                }
+
+
             }
         }
 

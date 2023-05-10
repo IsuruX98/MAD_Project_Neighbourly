@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.mad.neighbourlytest.R
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.mad.neighbourlytest.activites.isuru.HomeActivity
 import com.mad.neighbourlytest.activites.isuru.Menu
 import com.mad.neighbourlytest.activites.isuru.Menu2
@@ -105,6 +108,46 @@ class AddFamilyActivity : AppCompatActivity() {
             famJob.error="Please Enter Job"
             return
         }
+
+        val phonePattern = Regex("^[+]?[0-9]{10,13}\$")
+        if (!phonePattern.matches(familyConNumber)) {
+            contactNo.error = "Please enter a valid phone number."
+            return
+        }
+        val maxMembers = 10
+        if (noMembers.toInt() > maxMembers) {
+            famMembers.error = "Maximum $maxMembers family members allowed."
+            return
+        }
+        val specialCharPattern = Regex("[^A-Za-z ]")
+        if (specialCharPattern.containsMatchIn(familyName) || specialCharPattern.containsMatchIn(familyJob)) {
+            Toast.makeText(this, "Please remove any special characters or digits from the input fields.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+
+        val specialCharPattern2 = Regex("[^A-Za-z0-9 (,/)]")
+        if (specialCharPattern2.containsMatchIn(familyAddress)) {
+            Toast.makeText(this, "Please remove any special characters from the family address field except for ( and /.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        dbRef.orderByChild("familyName").equalTo(familyName).addListenerForSingleValueEvent(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    famName.error = "This family already exists in the database."
+                    return
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@AddFamilyActivity, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
+
 
         // Generate a unique ID for the new family entry in the database
         val  familyID =dbRef.push().key!!

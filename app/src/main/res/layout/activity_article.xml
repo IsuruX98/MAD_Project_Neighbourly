@@ -113,10 +113,11 @@
 
         <Button
             android:id="@+id/btnUpdateArticle"
+            style="@style/btnOrangeMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="50dp"
             android:background="@color/orangeMainColor"
             android:text="Edit"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,16 +125,15 @@
 
         <Button
             android:id="@+id/btnDeleteArticle"
+            style="@style/btnRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-
+            android:layout_marginEnd="80dp"
             android:background="@color/red"
             android:text="Delete"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintStart_toEndOf="@+id/btnUpdateArticle"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 
